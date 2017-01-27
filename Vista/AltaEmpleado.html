@@ -1,0 +1,103 @@
+<div class="container auth">
+    <h1 class="text-center">Alta empleado <span>llena todos los campos!</span> </h1>
+    <div id="big-form" class="well auth-box">
+      <form  role="form"  name="persona">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Formulario empleado</legend>
+
+
+
+
+          <div class="row">
+            <!-- Nombre-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback  {{persona.nombre.$invalid && (!show || !persona.nombre.$untouched) ?'has-error':'' }}">
+                    <input type="text" name="nombre" class="Esconder" id="nombre"   ng-model="user.nombre"   class="form-control input-md form-control" placeholder="Nombre" tabindex="1" required>
+                    <span ng-show="persona.nombre.$invalid  && (!show || !persona.nombre.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+
+            <!--Apellido -->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback  {{persona.apellido.$invalid && (!show || !persona.apellido.$untouched) ?'has-error':'' }}">
+                    <input type="text" name="apellido" id="apellido"   ng-model="user.apellido"   class="form-control input-md" placeholder="Apellido" tabindex="2" required>
+                    <span ng-show="persona.apellido.$invalid  && (!show || !persona.apellido.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!--Usuario-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback  {{persona.usuario.$invalid && (!show || !persona.usuario.$untouched) ?'has-error':'' }}">
+                    <input type="text" name="usuario" id="usuario"  value="empleado" ng-model="user.usuario" class="form-control input-md" placeholder="Usuario" tabindex="7" required>
+                    <span ng-show="persona.usuario.$invalid  && (!show || !persona.usuario.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+
+            <!--Mail-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback  {{persona.mail.$invalid && (!show || !persona.mail.$untouched) ?'has-error':'' }}">
+                    <input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-md" placeholder="mail" tabindex="8" required >
+                    <span ng-show="persona.mail.$invalid  && (!show || !persona.mail.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </div>  
+
+
+        <div class="row">
+            <!-- clave-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group has-feedback  {{(persona.clave.$invalid  )  && (!show || !persona.clave.$untouched) ?'has-error':'' }}">
+                    <input type="password" name="clave" value="empleado"  ng-model="user.clave" id="clave" class="form-control input-md" placeholder="Contraseña" tabindex="9" required>
+                    <span ng-show="(persona.clave.$invalid  )  && (!show || !persona.clave.$untouched) " class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <!-- sueldo-->
+                <div class="form-group has-feedback  {{(persona.sueldo.$invalid  )  && (!show || !persona.sueldo.$untouched)?'has-error':'' }}">
+                    <input type="number" name="sueldo"  ng-model="user.sueldo" value="1234" id="sueldo" class="form-control input-md" placeholder="Sueldo" tabindex="10" required>
+                    <span ng-show="(persona.sueldo.$invalid  )  && (!show || !persona.sueldo.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </div>  
+
+
+        <div class="row">
+            <!-- fecha de nacimiento-->
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div   class="form-group has-feedback  {{persona.fechaNacimiento.$invalid && (!show || !persona.fechaNacimiento.$untouched) ?'has-error':'' }}">
+                    <input type="text" onfocus="(this.type='date' )"  placeholder="fecha de nacimiento"  name="fechaNacimiento" ng-model="user.fechaNacimiento" value="2015-10-10" id="fechaNacimiento" class="form-control input-md" placeholder="Fecha de nacimiento" tabindex="5" required>
+                    <span ng-show="persona.fechaNacimiento.$invalid  && (!show || !persona.fechaNacimiento.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <!-- documento-->
+                <div class="form-group has-feedback  {{persona.documento.$invalid && (!show || !persona.documento.$untouched) ?'has-error':'' }}">
+                    <input type="number" name="documento"  value="1234" ng-model="user.documento"  id="documento" class="form-control input-md" placeholder="Documento" tabindex="6" required>
+                    <span ng-show="persona.documento.$invalid  && (!show || !persona.documento.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Select Encargado -->
+        <div  class="form-group has-feedback {{persona.cargo.$invalid && (!show || !persona.cargo.$untouched) ?'has-error':'' }}">
+            <label class=" control-label" for="selectbasic">Cargo</label>
+            <div class="">
+              <select id="cargo" name="cargo" ng-init="user.cargo = options[0]" ng-model="user.cargo"   ng-options="option.name for option in options" class="form-control input-md" required>
+            </select>
+             <span ng-show="persona.cargo.$invalid  && (!show || !persona.cargo.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+    </div>
+    <button id="button1id" name="button1id" style="width:200px;" ng-click="show= persona.$valid ; show ? Aceptar():false" class="btn btn-success">Acetar</button>
+    <button id="button2id" name="button2id" style="width:200px;" class="btn btn-danger">Cancelar</button>
+
+</fieldset>
+</form>
+</div>
+<div class="clearfix"></div>
+</div>

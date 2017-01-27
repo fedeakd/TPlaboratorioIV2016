@@ -1,0 +1,41 @@
+<div class="fullscreen_bg" >
+
+	<div class="container">
+
+		<div class="row" style="margin-top:20px">
+			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form role="form"   name="usuario" >
+					<fieldset>
+
+						<h2>Por favor logeate</h2>
+						<hr class="colorgraph">
+						<div class="form-group has-feedback  {{usuario.mail.$invalid && (!show || !usuario.mail.$untouched) ?'has-error':'' }}">
+							<input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-lg" placeholder="mail" required >
+							<span ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback {{(usuario.clave.$invalid)  && (!show || !usuario.clave.$untouched) ?'has-error':'' }}">
+							<input type="password" name="clave" id="clave" ng-model="user.clave" class="form-control input-lg" placeholder="Contraseña" required>
+							<span ng-show="(usuario.clave.$invalid )  && (!show || !usuario.clave.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						</div>
+						<hr class="colorgraph">
+						<div>
+							<span  class="alerta" ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)">El mail es requerido ---</span>
+							<span  class="alerta" ng-show="(usuario.clave.$invalid)   && (!show || !usuario.clave.$untouched)">La contraseña es requerido ---</span>
+
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input type="button" ng-click="show= usuario.$valid; show ? Logearse():false"  class="btn btn-lg btn-success btn-block" value="Aceptar">
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a ng-click="IrRegistrar()" class="btn btn-lg btn-primary btn-block">Registrate</a>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+</div>

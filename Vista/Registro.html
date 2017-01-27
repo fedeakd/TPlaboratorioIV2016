@@ -1,0 +1,102 @@
+<div class="container">
+	<div class="fullscreen_bg" >
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form role="form"  name="persona">
+					<h2>Registro <small>Llene todosss los campos por favor </small></h2>
+					<hr class="colorgraph">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.nombre.$invalid && (!show || !persona.nombre.$untouched) ?'has-error':'' }}">
+								<input type="text" name="nombre" id="nombre"   ng-model="user.nombre"   class="form-control input-lg form-control" placeholder="Nombre" tabindex="1" required>
+								<span ng-show="persona.nombre.$invalid  && (!show || !persona.nombre.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.apellido.$invalid && (!show || !persona.apellido.$untouched) ?'has-error':'' }}">
+								<input type="text" name="apellido" id="apellido"   ng-model="user.apellido"   class="form-control input-lg" placeholder="Apellido" tabindex="2" required>
+								<span ng-show="persona.apellido.$invalid  && (!show || !persona.apellido.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.ciudad.$invalid && (!show || !persona.ciudad.$untouched) ?'has-error':'' }}">
+								<input type="text" name="ciudad" id="ciudad"   ng-model="user.ciudad"   value="empleado"  class="form-control input-lg" placeholder="Ciudad" tabindex="3" required>
+								<span ng-show="persona.ciudad.$invalid  && (!show || !persona.ciudad.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.domicilio.$invalid && (!show || !persona.domicilio.$untouched) ?'has-error':'' }}">
+								<input type="text" name="domicilio" id="domicilio" ng-model="user.domicilio"  value="empleado"  class="form-control input-lg" placeholder="Domicilio" tabindex="4" required>
+								<span ng-show="persona.domicilio.$invalid  && (!show || !persona.domicilio.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.fechaNacimiento.$invalid && (!show || !persona.fechaNacimiento.$untouched) ?'has-error':'' }}">
+								<input type="date" name="fechaNacimiento" ng-model="user.fechaNacimiento" value="2015-10-10" id="fechaNacimiento" class="form-control input-lg" placeholder="Fecha de nacimiento" tabindex="5" required>
+								<span ng-show="persona.fechaNacimiento.$invalid  && (!show || !persona.fechaNacimiento.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.documento.$invalid && (!show || !persona.documento.$untouched) ?'has-error':'' }}">
+								<input type="number" name="documento"  value="1234" ng-model="user.documento"  id="documento" class="form-control input-lg" placeholder="Documento" tabindex="6" required>
+								<span ng-show="persona.documento.$invalid  && (!show || !persona.documento.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.usuario.$invalid && (!show || !persona.usuario.$untouched) ?'has-error':'' }}">
+								<input type="text" name="usuario" id="usuario"  value="empleado" ng-model="user.usuario" class="form-control input-lg" placeholder="Usuario" tabindex="7" required>
+								<span ng-show="persona.usuario.$invalid  && (!show || !persona.usuario.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{persona.mail.$invalid && (!show || !persona.mail.$untouched) ?'has-error':'' }}">
+								<input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-lg" placeholder="mail" tabindex="8" required >
+								<span ng-show="persona.mail.$invalid  && (!show || !persona.mail.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{(persona.clave.$invalid  || (persona.clave.$viewValue!=persona.rclave.$viewValue ))  && (!show || !persona.clave.$untouched) ?'has-error':'' }}">
+								<input type="password" name="clave" value="empleado"  ng-model="user.clave" id="clave" class="form-control input-lg" placeholder="Contraseña" tabindex="9" required>
+								<span ng-show="(persona.clave.$invalid  || (persona.clave.$viewValue!=persona.rclave.$viewValue ))  && (!show || !persona.clave.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="form-group has-feedback  {{(persona.rclave.$invalid  || (persona.clave.$viewValue!=persona.rclave.$viewValue ))  && (!show || !persona.rclave.$untouched)?'has-error':'' }}">
+								<input type="password" name="rclave"  ng-model="user.rclave" value="empleado" id="rclave" class="form-control input-lg" placeholder="Confirmar contraseña" tabindex="10" required>
+								<span ng-show="(persona.rclave.$invalid  || (persona.clave.$viewValue!=persona.rclave.$viewValue ))  && (!show || !persona.rclave.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>		
+					<hr class="colorgraph">
+					<span  class="alerta" ng-show="persona.nombre.$invalid  && (!show || !persona.nombre.$untouched)">El nombre es requerido --- </span>
+					<span  class="alerta" ng-show="persona.apellido.$invalid  && (!show || !persona.apellido.$untouched)">El apellido es requerido ---</span>
+					<span  class="alerta" ng-show="persona.ciudad.$invalid  && (!show || !persona.ciudad.$untouched)">La ciudad es requerido ---</span>
+					<span  class="alerta" ng-show="persona.domicilio.$invalid  && (!show || !persona.domicilio.$untouched)">El domicilio es requerido ---</span>
+					<span  class="alerta" ng-show="persona.fechaNacimiento.$invalid  && (!show || !persona.fechaNacimiento.$untouched)">La fecha nacimiento es requerido ---</span>
+					<span  class="alerta" ng-show="persona.documento.$invalid  && (!show || !persona.documento.$untouched)">El documento es requerido ---</span>
+					<span  class="alerta" ng-show="persona.usuario.$invalid  && (!show || !persona.usuario.$untouched)">El usuario es requerido ---</span>
+					<span  class="alerta" ng-show="persona.mail.$invalid  && (!show || !persona.mail.$untouched)">El mail es requerido ---</span>
+					<span  class="alerta" ng-show="(persona.clave.$invalid ||persona.rclave.$invalid)   && (!show || !persona.clave.$untouched)">La contraseña es requerido ---</span>
+					<span  class="alerta" ng-show="(persona.rclave.$invalid  || (persona.clave.$viewValue!=persona.rclave.$viewValue ))  && (!show || !persona.rclave.$untouched)" >Las contraseña no son iguales ---</span>
+					
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<input type="button"  value="Regitrar" 
+							ng-click="show= persona.$valid && persona.clave.$viewValue==persona.rclave.$viewValue ; show ? Mostrar():false" class="btn btn-primary btn-block btn-lg" tabindex="11"></div>
+							<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Ir a login</a></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div></div>
