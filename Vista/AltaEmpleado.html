@@ -1,4 +1,4 @@
-<div class="container auth">
+<div class="container auth invisibleCampo">
     <h1 class="text-center">Alta empleado <span>llena todos los campos!</span> </h1>
     <div id="big-form" class="well auth-box">
       <form  role="form"  name="persona">
@@ -14,7 +14,7 @@
             <!-- Nombre-->
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group has-feedback  {{persona.nombre.$invalid && (!show || !persona.nombre.$untouched) ?'has-error':'' }}">
-                    <input type="text" name="nombre" class="Esconder" id="nombre"   ng-model="user.nombre"   class="form-control input-md form-control" placeholder="Nombre" tabindex="1" required>
+                    <input type="text" name="nombre"  id="nombre"   ng-model="user.nombre"   class="form-control input-md form-control" placeholder="Nombre" tabindex="1" required>
                     <span ng-show="persona.nombre.$invalid  && (!show || !persona.nombre.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
                 </div>
             </div>
@@ -93,7 +93,7 @@
              <span ng-show="persona.cargo.$invalid  && (!show || !persona.cargo.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
         </div>
     </div>
-    <button id="button1id" name="button1id" style="width:200px;" ng-click="show= persona.$valid ; show ? Aceptar():false" class="btn btn-success">Acetar</button>
+    <button id="button1id" name="button1id" style="width:200px;" ng-click="show= persona.$valid ; show ? Aceptar():false" class="btn btn-success">Aceptar</button>
     <button id="button2id" name="button2id" style="width:200px;" class="btn btn-danger">Cancelar</button>
 
 </fieldset>

@@ -1,3 +1,6 @@
+<!doctype html>
+<html>
+
 <head>
 
 
@@ -20,11 +23,17 @@
 	<script src="bower_components/satellizer/dist/satellizer.min.js"></script>
 	<script src="bower_components/satellizer/dist/satellizer.js"></script>
 
+
+
+
 	<!-- Bootstrap Core JavaScript -->
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 	<!--PARTE  JS -->
+	<!--Esto  sirve para poder ver la imagen  en  fileupload  -->
+
 	<script SRC="js/routeo.js" TYPE="text/javascript"></script> 
+	<script SRC="js/ngThumb.js" TYPE="text/javascript"></script>
 	
 	<!--Controladores -->
 	<script SRC="js/Controller/controladorLogin.js" TYPE="text/javascript"></script>   
@@ -32,14 +41,20 @@
 	<script SRC="js/Controller/controladorPrincipal.js" TYPE="text/javascript"></script>  
 	<script SRC="js/Controller/controladorEmpleado.js" TYPE="text/javascript"></script>  
 	<script SRC="js/Controller/controladorProducto.js" TYPE="text/javascript"></script>  
+	<script SRC="js/Controller/controladorLocal.js" TYPE="text/javascript"></script>  
+	<script SRC="js/Controller/controladorPersona.js" TYPE="text/javascript"></script>   
 	<!--Servicios -->
 	<script SRC="js/Servicio/ServicioPersona.js" TYPE="text/javascript"></script>     
-
+	<script SRC="js/Servicio/ServicioProducto.js" TYPE="text/javascript"></script>     
+	<script SRC="js/Servicio/ServicioLocal.js" TYPE="text/javascript"></script>   
 	<!--Factorys -->
 	<script SRC="js/Factory/FactoryCliente.js" TYPE="text/javascript"></script>   
 	<script SRC="js/Factory/FactoryUsuario.js" TYPE="text/javascript"></script>   
 	<script SRC="js/Factory/FactoryEmpleado.js" TYPE="text/javascript"></script>  
-
+	<script SRC="js/Factory/FactoryProducto.js" TYPE="text/javascript"></script> 
+	<script SRC="js/Factory/FactoryRuta.js" TYPE="text/javascript"></script>  
+	<script SRC="js/Factory/FactoryLocal.js" TYPE="text/javascript"></script>  
+	<script SRC="js/Factory/FactoryGrilla.js" TYPE="text/javascript"></script> 
 	<title></title>
 </head>
 <body ng-app="AngularABM" ng-class="{'home-page': $state.includes('home'), 'login-page' : $state.includes('login')}">

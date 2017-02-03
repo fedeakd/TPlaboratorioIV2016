@@ -72,6 +72,30 @@ miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 			}
 		}
 		)
+	.state(
+		"abstractoMenu.localAlta",{
+			url:"/agregarLocal",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/FormularioLocal.html",
+					controller:"controlAltaLocal"
+				}
+			}
+		}
+		)
+	.state(
+		"abstractoMenu.usuariosGrillas",{
+			url:"/grillaDeUsuarios",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/GrillaUsuarios.html",
+					controller:"controlGrillaUsuarios"
+				}
+			}
+		}
+		)
 	$urlRouterProvider.otherwise("/login");
 });
 

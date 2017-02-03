@@ -1,10 +1,12 @@
 angular
 .module('AngularABM')
-.service('ServicioPersona', function ($http) {
-	var urlPersona= "http://localhost:81/ServidorTP/persona/";
+.service('ServicioPersona', function ($http,FactoryRuta) {
+	var urlPersona= FactoryRuta.persona;
 	this.AltaCliente=AltaCliente;
 	this.AltaEmpleado=AltaEmpleado;
 	this.VerificarLogin=VerificarLogin;
+	this.TraerTodos=TraerTodos;
+	this.CambiarEstado=CambiarEstado;
 	function AltaCliente(persona){
 		return $http.post(urlPersona+"altaCliente/"+JSON.stringify(persona))
 		.then(function(respuesta) {     	
@@ -15,7 +17,7 @@ angular
 
 	} 
 	function VerificarLogin(persona){
-		return $http.get(urlPersona+"/verificar/"+JSON.stringify(persona)).then(function(data){
+		return $http.get(urlPersona+"verificar/"+JSON.stringify(persona)).then(function(data){
 			return data.data;
 		});
 	}
@@ -28,6 +30,21 @@ angular
 		});   
 
 	} 
+	function TraerTodos(){
+		return $http.get(urlPersona+"TraerTodos")
+		.then(function(respuesta) {     	
+			
+			return respuesta.data;
 
+		});
+	}
+	function CambiarEstado(persona){
+		return $http.put(urlPersona+"CambiarEstado/"+JSON.stringify(persona))
+		.then(function(respuesta) {     	
+			
+			return respuesta.data;
+
+		});
+	} 
 
 })

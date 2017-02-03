@@ -1,0 +1,169 @@
+
+
+
+
+<div ng-if="true" class="container" style="margin-top:50px;">
+	<div class="row">
+
+       <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="produ in  productos">
+        <div class="col-item">
+            <div class="post-img-content">
+            <!-- Carousel
+            ================================================== -->
+            <div id="{{produ.idProducto}}" style="height: 168px;"  class="carousel slide">        
+                <div class="carousel-inner">           
+                    <div class="item active" style="height: 168px;"> 
+                       <img class="thumbnail"    style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto1}}" alt="Slide1"> 
+                   </div>
+                   <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail "    style="height: 169px; width:260px"   ng-src="{{ruta+produ.foto2}}" alt="Slide2">
+                 </div>  
+                 <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail"     style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto3}}" alt="Slide3">
+                 </div>                                                                                   
+             </div>
+             <!-- Indicators -->
+             <ol class="carousel-indicators">
+                <li data-target="#{{produ.idProducto}}" data-slide-to="0" class="active"></li>
+                <li data-target="#{{produ.idProducto}}" data-slide-to="1"></li>
+                <li data-target="#{{produ.idProducto}}" data-slide-to="2"></li>
+            </ol>                                                                 
+        </div><!-- End Carousel -->  
+        <a class="left carousel-control"  data-target="#{{produ.idProducto}}" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control"  data-target="#{{produ.idProducto}}" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+
+
+
+    </div>
+    <div class="info">
+        <div class="row">
+            <div class="price col-md-6">
+                <h5> {{produ.nombre}}</h5>
+                <h5 class="price-text-color">{{produ.precio * (produ.cantidad==null||produ.cantidad==0?1:produ.cantidad)}} $</h5>
+            </div>
+            <div class="rating hidden-sm col-md-6">
+                <h5 class="">cantidad</h5>
+                <input type="number" min="0" ng-model="produ.cantidad" placeholder="0" class="prueba">
+
+            </div>
+        </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a  ng-click="Agregar(produ);" class="hidden-sm">Agregar al carrito</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i>Mas detalles </p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+  
+
+</div>
+
+
+<div ng-if="false">
+
+
+
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-item">
+            <div class="post-img-content">
+                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                <span class="post-title">
+                    <b>Perfumes</b><br>
+                    <b>Clássico</b>
+                </span>
+
+            </div>
+            <div class="info">
+                <div class="row">
+                    <div class="price col-md-6">
+                        <h5> Sample Product</h5>
+                        <h5 class="price-text-color">$199.99</h5>
+                    </div>
+                    <div class="rating hidden-sm col-md-6">
+                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                </i><i class="fa fa-star"></i>
+            </div>
+        </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-item">
+            <div class="photo">
+                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+            </div>
+            <div class="info">
+                <div class="row">
+                    <div class="price col-md-6">
+                        <h5> Sample Product</h5>
+                        <h5 class="price-text-color">$199.99</h5>
+                    </div>
+                    <div class="rating hidden-sm col-md-6">
+                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                </i><i class="fa fa-star"></i>
+            </div>
+        </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="col-item">
+            <div class="photo">
+                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+            </div>
+            <div class="info">
+                <div class="row">
+                    <div class="price col-md-6">
+                        <h5> Sample Product</h5>
+                        <h5 class="price-text-color">$199.99</h5>
+                    </div>
+                    <div class="rating hidden-sm col-md-6">
+                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                </i><i class="fa fa-star"></i>
+            </div>
+        </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
