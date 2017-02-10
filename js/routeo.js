@@ -1,10 +1,13 @@
-var miApp= angular.module("AngularABM",['ui.router','angularFileUpload','ngAnimate', 'ngTouch','satellizer',
+var miApp= angular.module("AngularABM",['ui.router','ui.bootstrap','angularFileUpload','ngAnimate', 'ngTouch','satellizer',
 	'ui.grid',
 	'ui.grid.pagination',
 	'ui.grid.resizeColumns',
 	'ui.grid.selection',
 	'ui.grid.exporter',
-	'ui.grid.edit']);
+	'ui.grid.edit',
+	'ngMap',
+	'google.places'
+	]);
 miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 	$authProvider.loginUrl='Laboratorio4/TPlaboratorioIV2016/PHP/auth.php';
 	$authProvider.tokenName="Lab4";
@@ -92,6 +95,30 @@ miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 
 					templateUrl:"Vista/GrillaUsuarios.html",
 					controller:"controlGrillaUsuarios"
+				}
+			}
+		}
+		)
+	.state(
+		"abstractoMenu.altaPedido",{
+			url:"/altaPedido",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/FormularioPedido.html",
+					controller:"controlAltaPedido"
+				}
+			}
+		}
+		)
+	.state(
+		"abstractoMenu.localProductos",{
+			url:"/Local-Productos",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/Local-Productos.html",
+					controller:"controlLocal-Productos"
 				}
 			}
 		}

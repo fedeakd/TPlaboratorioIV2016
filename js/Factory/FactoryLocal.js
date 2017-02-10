@@ -9,6 +9,10 @@ angular
 
 	local.CargarDatos=CargarDatos;
 	local.Alta=Alta;
+	local.TraerTodos=TraerTodos;
+	local.GuardarLocalProdu=GuardarLocalProdu;
+	local.TraerUnLocalProdu=TraerUnLocalProdu;
+	local.BorrarLocalProdu=BorrarLocalProdu;
 	return local;
 
 	function CargarDatos(datos){
@@ -18,8 +22,22 @@ angular
 		local.nombre= datos.nombre;
 		local.direccion= datos.direccion; 
 	}
+	function TraerTodos(){
+		return ServicioLocal.TraerTodos();
+	}
 	function Alta(){
 		return ServicioLocal.Alta(local);
 	}
+	function GuardarLocalProdu(paquete){
+		return ServicioLocal.GuardarLocalProdu(paquete);
+	}
+	function TraerUnLocalProdu(dato){
+		return ServicioLocal.TraerUnLocalProdu(dato);
+	}
+	function BorrarLocalProdu(paquete){
+		return ServicioLocal.BorrarLocalProdu(paquete);
+	}
+	
+
 
 })

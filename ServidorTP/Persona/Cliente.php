@@ -36,7 +36,7 @@ class Cliente extends Usuario{
 	{
 	
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into Clientes (idCliente,nombre,apellido,ciudad,domicilio,
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into clientes (idCliente,nombre,apellido,ciudad,domicilio,
 			fechaNacimiento,documento) 
 		values($this->idUsuario,
 			'$this->nombre',
@@ -130,7 +130,7 @@ class Cliente extends Usuario{
 	}
 	public  function TraerUnCliente($id){
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT * from Clientes where idCliente=$id  ");
+		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT * from clientes where idCliente=$id  ");
 		$consulta->execute();
 		$array=$consulta->fetchAll()[0];
 		$this->idCliente=$array[0];

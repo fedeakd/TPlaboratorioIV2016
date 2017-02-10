@@ -19,6 +19,36 @@ $app->post('/alta/{producto}', function (Request $request, Response $response,$a
 	$response->getBody()->write("ok")	;
 	return $response;
 });
+$app->get('/TraerTodos', function (Request $request, Response $response) {
+	$response->getBody()->write(json_encode(Local::TraerTodos()));
 
+	return $response;
+});
+$app->get('/TraerUnLocalProdu/{dato}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['dato']);
+	$response->getBody()->write(json_encode(Local::TraerUnLocalProdu($datos->idLocal)));
 
+	return $response;
+});
+$app->post('/GuardarLocalProdu/{paquete}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['paquete']);
+	$local=$datos->local;
+	$productos=$datos->lPN;
+	foreach ($productos as $produ) {
+		Local::GuardarLocalProdu($local->idLocal,$produ->idProducto);
+	}
+	$response->getBody()->write("ok");
+	return $response;
+});
+
+$app->post('/BorrarLocalProdu/{paquete}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['paquete']);
+	$local=$datos->local;
+	$productos=$datos->lPV;
+	foreach ($productos as $produ) {
+		Local::BorrarLocalProdu($local->idLocal,$produ->idProducto);
+	}
+	$response->getBody()->write("ok");
+	return $response;
+});
 $app->run(); 

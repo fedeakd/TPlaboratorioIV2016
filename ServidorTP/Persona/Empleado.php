@@ -30,7 +30,7 @@ class Empleado extends Usuario{
 
 	public function InsertarEmpleado(){
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into Empleados (idEmpleado,nombre,apellido,
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into empleados (idEmpleado,nombre,apellido,
 			fechaNacimiento,documento,sueldo) 
 		values($this->idUsuario,
 			'$this->nombre',
@@ -44,7 +44,7 @@ class Empleado extends Usuario{
 
 	public  function TraerUnEmpleado($id){
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT * from Empleados where idEmpleado=$id  ");
+		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT * from empleados where idEmpleado=$id  ");
 		$consulta->execute();
 		$array=$consulta->fetchAll()[0];
 		$this->idEmpleado=$array[0];

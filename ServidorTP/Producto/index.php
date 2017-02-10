@@ -28,7 +28,7 @@ $app->post('/alta/{producto}', function (Request $request, Response $response,$a
 $app->get('/TraerTodos', function (Request $request, Response $response) {
 	//$producto=Producto::TraerTodos();
 	$response->getBody()->write(json_encode(Producto::TraerTodos()));
-	$response->getBody()->write("");
+	//$response->getBody()->write("");
 
 	return $response;
 });
