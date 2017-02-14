@@ -60,7 +60,7 @@ class Local{
 	{
 		
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into localesProdu (idLocal,idProducto )
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into localesprodu (idLocal,idProducto )
 			values($idLocal,
 				$idProducto
 				)");
@@ -73,7 +73,7 @@ class Local{
 	{
 		
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("DELETE  FROM localesProdu WHERE idLocal=$idLocal && idProducto=$idProducto");
+		$consulta =$objetoAccesoDato->RetornarConsulta("DELETE  FROM localesprodu WHERE idLocal=$idLocal && idProducto=$idProducto");
 		$consulta->execute();
 
 
@@ -81,7 +81,7 @@ class Local{
 	public function TraerUnLocalProdu($idLocal){
 		$array=[];
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT p.nombre, p.precio, p.idProducto,p.foto1,p.foto2,p.foto3 FROM localesProdu AS lp
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT p.nombre, p.precio, p.idProducto,p.foto1,p.foto2,p.foto3 FROM localesprodu AS lp
 			INNER JOIN productos AS p ON p.idProducto=lp.idProducto
 			INNER JOIN locales AS l ON l.idLocal=lp.idLocal
 			WHERE lp.idLocal=$idLocal");
@@ -91,6 +91,53 @@ class Local{
 			$fila['idProducto']=$row['idProducto'];
 			$fila['precio']=$row['precio'];
 			$fila['nombre']=$row['nombre'];
+			$fila['foto1']=$row['foto1'];
+			$fila['foto2']=$row['foto2'];
+			$fila['foto3']=$row['foto3'];
+			array_push($array,$fila);
+
+		}
+		return $array;
+
+	}
+
+
+	public function GuardarLocalOferta($idLocal,$idOferta)
+	{
+
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into localesofertas (idLocal,idOferta )
+			values($idLocal,
+				$idOferta
+				)");
+		$consulta->execute();
+		
+
+
+	}
+	public function BorrarLocalOferta($idLocal,$idOferta)
+	{
+		
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("DELETE  FROM localesofertas WHERE idLocal=$idLocal && idOferta=$idOferta");
+		$consulta->execute();
+
+
+	}
+	public function TraerUnLocalOferta($idLocal){
+		$array=[];
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT o.nombre, o.precio, o.idOferta,o.fecha,o.foto1,o.foto2,o.foto3 FROM localesOfertas AS lO
+			INNER JOIN ofertas AS o ON o.idOferta=lO.idOferta
+			INNER JOIN locales AS l ON l.idLocal=lO.idLocal
+			WHERE lO.idLocal=$idLocal");
+		$consulta->execute(); 
+		foreach ($consulta->fetchAll() as $row) {
+			$fila=[];
+			$fila['idOferta']=$row['idOferta'];
+			$fila['precio']=$row['precio'];
+			$fila['nombre']=$row['nombre'];
+			$fila['fecha']=$row['fecha'];
 			$fila['foto1']=$row['foto1'];
 			$fila['foto2']=$row['foto2'];
 			$fila['foto3']=$row['foto3'];

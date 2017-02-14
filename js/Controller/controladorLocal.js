@@ -8,6 +8,14 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 	$scope.uploader=new FileUploader({url:FactoryRuta.imagenTemporal});
 	$scope.uploader.queueLimit=3;
 	$scope.imagenes=[];
+
+
+	$scope.autocompleteOptions = {
+		componentRestrictions: { country: 'ar' },
+		types: ['geocode']
+
+	}
+
 	$scope.uploader.onSuccessItem=function(item, response, status, headers)
 	{
 		$scope.imagenes.push( item.file.name);
@@ -22,10 +30,10 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 	}
 
 	$scope.Aceptar= function(){
-		console.log($scope.local);
+		$scope.local.direccion=$scope.local.direccion.formatted_address;
+
 		FactoryLocal.imagenes=$scope.imagenes;
 		FactoryLocal.CargarDatos($scope.local);
-		console.log(FactoryLocal);
 		FactoryLocal.Alta().then(function(respuesta) {
 			if(respuesta=="ok"){
 				console.log("todo salio bien");
@@ -43,19 +51,19 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 
 .controller("controlLocal-Productos",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FileUploader,FactoryRuta){
 
-	var LocalProduViejo=[];
+	var localProduViejo=[];
 	var todosLosProductos=[];
-	$scope.grillaProducto={};
-	$scope.grillaLocalProdo={};
+	$scope.grillaDos={};
+	$scope.grillaUno={};
 	$scope.cambio="";
 	$scope.locales=[];
 	$scope.local={};
 
-	$scope.grillaProducto.columnDefs=FactoryProducto.ConfigurarGrilla(2);
-	$scope.grillaLocalProdo.columnDefs=FactoryProducto.ConfigurarGrilla(1);
+	$scope.grillaDos.columnDefs=FactoryProducto.ConfigurarGrilla(2);
+	$scope.grillaUno.columnDefs=FactoryProducto.ConfigurarGrilla(1);
 
 	FactoryProducto.TraerTodos().then(function(respuesta) {
-		$scope.grillaProducto.data =respuesta;
+		$scope.grillaDos.data =respuesta;
 		todosLosProductos=FactoryProducto.CargarArray(respuesta);
 
 	});
@@ -71,10 +79,10 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 		$scope.local=local;
 		FactoryLocal.TraerUnLocalProdu(local).then(function(respuesta) {
 
-			$scope.grillaLocalProdo.data=respuesta;
-			LocalProduViejo= FactoryProducto.CargarArray(respuesta);			
-			$scope.grillaProducto.data =FactoryProducto.CargarArray(todosLosProductos);
-			FactoryProducto.ConfigurarGrillaProducto(respuesta,$scope.grillaProducto);
+			$scope.grillaUno.data=respuesta;
+			localProduViejo= FactoryProducto.CargarArray(respuesta);			
+			$scope.grillaDos.data =FactoryProducto.CargarArray(todosLosProductos);
+			FactoryProducto.ConfigurarGrillaProducto(respuesta,$scope.grillaDos);
 
 
 		});
@@ -83,10 +91,10 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 	
 	$scope.Cambio=function(){
 		paquete={};
-		FactoryProducto.Cambio($scope.grillaLocalProdo,$scope.grillaProducto);
-		FactoryProducto.Cambio($scope.grillaProducto,$scope.grillaLocalProdo);
+		FactoryProducto.Cambio($scope.grillaUno,$scope.grillaDos);
+		FactoryProducto.Cambio($scope.grillaDos,$scope.grillaUno);
 
-		paquete= FactoryProducto.SeleccionarAltaYBaja(LocalProduViejo, $scope.grillaLocalProdo.data);
+		paquete= FactoryProducto.SeleccionarAltaYBaja(localProduViejo, $scope.grillaUno.data);
 		paquete.local=$scope.local;
 
 
@@ -111,10 +119,93 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 		*tipo  1 si es producto y dos si es producto del local 
 		*/
 		if(tipo==1){
-			FactoryProducto.Seleccionar(estado,index,$scope.grillaLocalProdo);
+			FactoryProducto.Seleccionar(estado,index,$scope.grillaUno);
 		}
 		else{
-			FactoryProducto.Seleccionar(estado,index,$scope.grillaProducto);
+			FactoryProducto.Seleccionar(estado,index,$scope.grillaDos);
 		}
 	}
+}).
+controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FactoryRuta,FactoryOferta){
+
+	var localOfertaVieja=[];
+	var todasLasOfertas=[];
+	$scope.grillaDos={};
+	$scope.grillaUno={};
+	$scope.cambio="";
+	$scope.locales=[];
+	$scope.grillaUno.data=[];
+	$scope.grillaDos.data=[];
+	$scope.grillaDos.columnDefs=FactoryOferta.ConfigurarGrilla(2);
+	$scope.grillaUno.columnDefs=FactoryOferta.ConfigurarGrilla(1);
+
+	$scope.local={};
+	for (var i = 0; i<5 ;i++) {
+		miLista={nombre:"FEfe"+i,precio:"ecomico",fecha:"2001-11-11",idOferta:-1}
+		//$scope.grillaUno.data.push(miLista);
+		//$scope.grillaDos.data.push(miLista);
+	};
+	for (var i = 0; i<5 ;i++) {
+		miLista={nombre:"FEfe"+i+""+i,precio:"ecomico",fecha:"2001-11-11",idOferta:-1}
+		//$scope.grillaUno.data.push(miLista);
+		//$scope.grillaDos.data.push(miLista);
+	};
+	localOfertaVieja=FactoryProducto.CargarArray($scope.grillaUno.data);
+
+	FactoryOferta.TraerTodos().then(function(respuesta) {
+		console.log(respuesta);
+		$scope.grillaDos.data =respuesta;
+		todasLasOfertas=FactoryProducto.CargarArray(respuesta);
+
+	});
+	FactoryLocal.TraerTodos().then(function(respuesta) {
+		$scope.locales=respuesta;
+
+	});
+	$scope.SeleccionLocal=function(local){
+		$scope.local=local;
+		FactoryLocal.TraerUnLocalOferta(local).then(function(respuesta) {
+
+			$scope.grillaUno.data=respuesta;
+			localOfertaVieja= FactoryProducto.CargarArray(respuesta);			
+			$scope.grillaDos.data =FactoryProducto.CargarArray(todasLasOfertas);
+			FactoryProducto.ConfigurarGrillaProducto(respuesta,$scope.grillaDos);
+
+
+		});
+		
+	}
+	$scope.Seleccionar=function(estado,index,tipo){
+		if(tipo==1){
+			FactoryProducto.Seleccionar(estado,index,$scope.grillaUno);
+		}
+		else{
+			FactoryProducto.Seleccionar(estado,index,$scope.grillaDos);
+		}
+	}
+
+	$scope.Cambio=function(){
+		paquete={};
+		FactoryOferta.Cambio($scope.grillaUno,$scope.grillaDos);
+		FactoryOferta.Cambio($scope.grillaDos,$scope.grillaUno);
+
+
+		paquete= FactoryProducto.SeleccionarAltaYBaja(localOfertaVieja, $scope.grillaUno.data);
+		paquete.local=$scope.local;
+		console.log(paquete);
+
+		if(paquete.lPV.length>0){//baja
+			FactoryLocal.BorrarLocalOferta(paquete).then(function(respuesta) {
+
+			});
+		}
+
+		if(paquete.lPN.length>0){//alta
+			FactoryLocal.GuardarLocalOferta(paquete).then(function(respuesta) {
+				console.log(respuesta);
+			});
+		}
+
+	}
+
 })

@@ -16,57 +16,57 @@
           </lable>
         </div>
         <div class='kickass_field formularioLocal'>
-          <input   maxlength='200' name="direccion"  id="direccion"   ng-model="local.direccion" required='required' type='text'>
-          <lable>
-            Direccion
-            <span>Pone la direccion del local</span>
-          </lable>
+         <input type="text"  name="direccion"  class="form-control" id="direccion" name="direccion" force-selection="true" g-places-autocomplete options="autocompleteOptions" ng-model="local.direccion" required/>
+         <lable>
+          Direccion
+          <span>Pone la direccion del local</span>
+        </lable>
+      </div>
+
+
+      <span  class="alerta" ng-show="  imagenes.length<3  && (!show)">3 fotos son requeridas  </span>
+      <div   style="border-color: #34ca3e;" class="fileUpload btn btn-info btn-inverse">
+        <span>Subir foto</span>
+        <input type="file" class="upload" nv-file-select uploader="uploader" />
+      </div>
+      <li  class="pgwSlider" ng-repeat="item in uploader.queue ">
+        <!-- nombre del archivo -->
+        Archivo: <span ng-bind="item.file.name"></span><br/>
+        <!-- imagen del archivo -->
+        <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+        <div style="margin-bottom: 0; width:50%; margin:auto;" class="progress" >
+          <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }" style="width: 40%;"></div>
         </div>
 
 
-        <span  class="alerta" ng-show="  imagenes.length<3  && (!show)">3 fotos son requeridas  </span>
-        <div   style="border-color: #34ca3e;" class="fileUpload btn btn-info btn-inverse">
-          <span>Subir foto</span>
-          <input type="file" class="upload" nv-file-select uploader="uploader" />
-        </div>
-        <li  class="pgwSlider" ng-repeat="item in uploader.queue ">
-          <!-- nombre del archivo -->
-          Archivo: <span ng-bind="item.file.name"></span><br/>
-          <!-- imagen del archivo -->
-          <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-          <div style="margin-bottom: 0; width:50%; margin:auto;" class="progress" >
-            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }" style="width: 40%;"></div>
+        <button type="button"  class="btn btn-success btn-xs" ng-click="item.upload()" > <span class="glyphicon glyphicon-upload"></span>
+          cargar</button>
+          <!-- boton cancel -->            
+          <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+          </button>
+
+          <!-- boton remove -->
+          <button type="button" class="btn btn-danger btn-xs" ng-click="remover($index);item.remove()">
+            <span class="glyphicon glyphicon-trash"></span> Remove
+          </button>
+        </li>  
+        <br><br>
+        <div ng-if="uploader.getNotUploadedItems().length">
+          <button ng-disabled="!uploader.getNotUploadedItems().length" type="button"  class="btn btn-success btn-xs" ng-click="uploader.uploadAll()" >  <span class="glyphicon glyphicon-upload"></span>
+            subir todas las fotos </button>
           </div>
 
+          <br> <br>
 
-          <button type="button"  class="btn btn-success btn-xs" ng-click="item.upload()" > <span class="glyphicon glyphicon-upload"></span>
-            cargar</button>
-            <!-- boton cancel -->            
-            <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-              <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-            </button>
+          <button id="button1id" name="button1id" style="width:150px;" ng-click="show= (loca.$valid && imagenes.length==3   ) ; show ? Aceptar():false" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Aceptar</button>
+          <button type="button" id="button2id" name="button2id" style="width:150;" class="btn btn-danger btn-lg btn3d"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
 
-            <!-- boton remove -->
-            <button type="button" class="btn btn-danger btn-xs" ng-click="remover($index);item.remove()">
-              <span class="glyphicon glyphicon-trash"></span> Remove
-            </button>
-          </li>  
-          <br><br>
-          <div ng-if="uploader.getNotUploadedItems().length">
-            <button ng-disabled="!uploader.getNotUploadedItems().length" type="button"  class="btn btn-success btn-xs" ng-click="uploader.uploadAll()" >  <span class="glyphicon glyphicon-upload"></span>
-              subir todas las fotos </button>
-            </div>
+<button ng-click="Aceptar()" > nadaaa</button>
 
-            <br> <br>
+        </fieldset>
+      </form>
+    </br>
 
-            <button id="button1id" name="button1id" style="width:150px;" ng-click="show= (loca.$valid && imagenes.length==3   ) ; show ? Aceptar():false" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Aceptar</button>
-            <button type="button" id="button2id" name="button2id" style="width:150;" class="btn btn-danger btn-lg btn3d"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-
-
-
-          </fieldset>
-        </form>
-      </br>
-
-    </div>
   </div>
+</div>

@@ -51,4 +51,36 @@ $app->post('/BorrarLocalProdu/{paquete}', function (Request $request, Response $
 	$response->getBody()->write("ok");
 	return $response;
 });
+
+
+$app->get('/TraerUnLocalOferta/{dato}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['dato']);
+	$response->getBody()->write(json_encode(Local::TraerUnLocalOferta($datos->idLocal)));
+
+	return $response;
+});
+$app->post('/GuardarLocalOferta/{paquete}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['paquete']);
+	$local=$datos->local;
+	$ofertas=$datos->lPN;
+	var_dump($ofertas);
+
+	foreach ($ofertas as $oferta) {
+		Local::GuardarLocalOferta($local->idLocal,$oferta->idOferta);
+	}
+	$response->getBody()->write("ok");
+	return $response;
+});
+
+$app->post('/BorrarLocalOferta/{paquete}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['paquete']);
+	$local=$datos->local;
+	$ofertas=$datos->lPV;
+	
+	foreach ($ofertas as $oferta) {
+		Local::BorrarLocalOferta($local->idLocal,$oferta->idOferta);
+	}
+	$response->getBody()->write("ok");
+	return $response;
+});
 $app->run(); 

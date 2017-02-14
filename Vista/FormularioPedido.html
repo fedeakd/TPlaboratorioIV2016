@@ -58,29 +58,29 @@
                     data-ride="carousel">        
                     <div class="carousel-inner ">           
                         <div class="item active" style="height: 260px;"> 
-                         <img class="thumbnail"    style="height: 260px; "  ng-src="{{ruta+local.foto1}}" alt="Slide1"> 
-                     </div>
+                           <img class="thumbnail"    style="height: 260px; "  ng-src="{{ruta+local.foto1}}" alt="Slide1"> 
+                       </div>
+                       <div class="item" style="height: 260px;"> 
+                         <img class="thumbnail "    style="height: 260px; "   ng-src="{{ruta+local.foto2}}" alt="Slide2">
+                     </div>  
                      <div class="item" style="height: 260px;"> 
-                       <img class="thumbnail "    style="height: 260px; "   ng-src="{{ruta+local.foto2}}" alt="Slide2">
-                   </div>  
-                   <div class="item" style="height: 260px;"> 
-                       <img class="thumbnail"     style="height: 260px; "  ng-src="{{ruta+local.foto3}}" alt="Slide3">
-                   </div>                                                                                   
-               </div>                                                             
-           </div>
-           <figcaption>
-            <div class="tagLocal">
-                <h2 style="color: white">{{local.nombre}}</h2>
+                         <img class="thumbnail"     style="height: 260px; "  ng-src="{{ruta+local.foto3}}" alt="Slide3">
+                     </div>                                                                                   
+                 </div>                                                             
+             </div>
+             <figcaption>
+                <div class="tagLocal">
+                    <h2 style="color: white">{{local.nombre}}</h2>
 
-                <p style="color:#215076">
-                    Direccion:
-                   {{local.direccion}}
-               </p>
-           </div>
+                    <p style="color:#215076">
+                        Direccion:
+                        {{local.direccion}}
+                    </p>
+                </div>
 
-       </figcaption>
-   </figure>
-</div>
+            </figcaption>
+        </figure>
+    </div>
 </div>
 </div>
 
@@ -89,66 +89,131 @@
 
 <!--2) Parte Productos  -->
 <div ng-show="num==2"  class="row" style=" background-color:white;" ng-cloak >
- <div>  <h1 class="zoomIn Pedido-Formato-Titulo"> Realiza  tu pedido </h1> <br></div>
- <br>
- <br>
- <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="produ in  productos">
-    <div class="col-item">
-        <div class="post-img-content">
-            <div id="producto{{produ.idProducto}}" style="height: 168px;"  class="carousel slide"
-            data-ride="carousel">        
-            <div class="carousel-inner ">           
-                <div class="item active" style="height: 168px;"> 
-                 <img class="thumbnail"    style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto1}}" alt="Slide1"> 
+   <div>  <h1 class="zoomIn Pedido-Formato-Titulo"> Realiza  tu pedido </h1> <br></div>
+   <br>
+   <br>
+   <div class="row">
+       <h2>Ofertas!!</h2>
+       <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="oferta in  ofertas">
+        <div class="col-item">
+            <div class="post-img-content">
+                <div id="Oferta{{oferta.idOferta}}" style="height: 168px;"  class="carousel slide"
+                data-ride="carousel">        
+                <div class="carousel-inner ">           
+                    <div class="item active" style="height: 168px;"> 
+                       <img class="thumbnail"    style="height: 169px; width:260px"  ng-src="{{ruta+oferta.foto1}}" alt="Slide1"> 
+                   </div>
+                   <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail "    style="height: 169px; width:260px"   ng-src="{{ruta+oferta.foto2}}" alt="Slide2">
+                 </div>  
+                 <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail"     style="height: 169px; width:260px"  ng-src="{{ruta+oferta.foto3}}" alt="Slide3">
+                 </div>                                                                                   
              </div>
-             <div class="item" style="height: 168px;"> 
-               <img class="thumbnail "    style="height: 169px; width:260px"   ng-src="{{ruta+produ.foto2}}" alt="Slide2">
-           </div>  
-           <div class="item" style="height: 168px;"> 
-               <img class="thumbnail"     style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto3}}" alt="Slide3">
-           </div>                                                                                   
-       </div>
-       <!-- Indicators -->
-       <ol class="carousel-indicators">
-        <li data-target="#producto{{produ.idProducto}}" data-slide-to="0" class="active"></li>
-        <li data-target="#producto{{produ.idProducto}}" data-slide-to="1"></li>
-        <li data-target="#producto{{produ.idProducto}}" data-slide-to="2"></li>
-    </ol>                                                                 
-</div><!-- End Carousel -->  
-<a class="left carousel-control"  data-target="#producto{{produ.idProducto}}" data-slide="prev">
-    <span class="icon-prev"></span>
-</a>
-<a class="right carousel-control"  data-target="#producto{{produ.idProducto}}" data-slide="next">
-    <span class="icon-next"></span>
-</a>
+             <!-- Indicators -->
+             <ol class="carousel-indicators">
+                <li data-target="#Oferta{{oferta.idOferta}}" data-slide-to="0" class="active"></li>
+                <li data-target="#Oferta{{oferta.idOferta}}" data-slide-to="1"></li>
+                <li data-target="#Oferta{{oferta.idOferta}}" data-slide-to="2"></li>
+            </ol>                                                                 
+        </div><!-- End Carousel -->  
+        <a class="left carousel-control"  data-target="#Oferta{{oferta.idOferta}}" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control"  data-target="#Oferta{{oferta.idOferta}}" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
 
-</div>
-<div class="info">
-    <div class="row">
-        <div class="price col-md-6">
-            <h5> {{produ.nombre}}</h5>
-            <h5 class="price-text-color">{{produ.precio * (produ.cantidad==null||produ.cantidad==0?1:produ.cantidad)}} $</h5>
-        </div>
-        <div class="rating hidden-sm col-md-6">
-            <h5 class="">cantidad</h5>
-            <input type="number" min="0" ng-model="produ.cantidad" placeholder="0" class="prueba">
-
-        </div>
     </div>
-    <div class="separator clear-left">
-        <p class="btn-add">
-            <i class="fa fa-shopping-cart"></i><a  ng-click="Agregar(produ);" class="hidden-sm">Agregar al carrito</a></p>
-            <p class="btn-details">
-                <i class="fa fa-list"></i>Mas detalles </p>
+    <div class="info">
+        <div class="row">
+            <div class="price col-md-6">
+                <h5> {{oferta.nombre}}</h5>
+                <h5 class="price-text-color">{{oferta.precio * (oferta.cantidad==null||oferta.cantidad==0?1:oferta.cantidad)}} $</h5>
             </div>
-            <div class="clearfix">
+            <div class="rating hidden-sm col-md-6">
+                <h5 class="">cantidad</h5>
+                <input type="number" min="0" ng-model="oferta.cantidad" placeholder="0" class="prueba">
+
             </div>
         </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a  ng-click="Agregar(oferta,$index,'oferta');" class="hidden-sm">Agregar al carrito</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i>Mas detalles </p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
     </div>
-    <br>
-    <br>
+</div>
+
+<div class="row">
+    <h2>Productos  !! </h2>
+    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="produ in  productos">
+        <div class="col-item">
+            <div class="post-img-content">
+                <div id="producto{{produ.idProducto}}" style="height: 168px;"  class="carousel slide"
+                data-ride="carousel">        
+                <div class="carousel-inner ">           
+                    <div class="item active" style="height: 168px;"> 
+                       <img class="thumbnail"    style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto1}}" alt="Slide1"> 
+                   </div>
+                   <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail "    style="height: 169px; width:260px"   ng-src="{{ruta+produ.foto2}}" alt="Slide2">
+                 </div>  
+                 <div class="item" style="height: 168px;"> 
+                     <img class="thumbnail"     style="height: 169px; width:260px"  ng-src="{{ruta+produ.foto3}}" alt="Slide3">
+                 </div>                                                                                   
+             </div>
+             <!-- Indicators -->
+             <ol class="carousel-indicators">
+                <li data-target="#producto{{produ.idProducto}}" data-slide-to="0" class="active"></li>
+                <li data-target="#producto{{produ.idProducto}}" data-slide-to="1"></li>
+                <li data-target="#producto{{produ.idProducto}}" data-slide-to="2"></li>
+            </ol>                                                                 
+        </div><!-- End Carousel -->  
+        <a class="left carousel-control"  data-target="#producto{{produ.idProducto}}" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control"  data-target="#producto{{produ.idProducto}}" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </div>
+    <div class="info">
+        <div class="row">
+            <div class="price col-md-6">
+                <h5> {{produ.nombre}}</h5>
+                <h5 class="price-text-color">{{produ.precio * (produ.cantidad==null||produ.cantidad==0?1:produ.cantidad)}} $</h5>
+            </div>
+            <div class="rating hidden-sm col-md-6">
+                <h5 class="">cantidad</h5>
+                <input type="number" min="0" ng-model="produ.cantidad" placeholder="0" class="prueba">
+
+            </div>
+        </div>
+        <div class="separator clear-left">
+            <p class="btn-add">
+                <i class="fa fa-shopping-cart"></i><a  ng-click="Agregar(produ,$index,'producto');" class="hidden-sm">Agregar al carrito</a></p>
+                <p class="btn-details">
+                    <i class="fa fa-list"></i>Mas detalles </p>
+                </div>
+                <div class="clearfix">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
 </div>
 </div>
+
+
 
 
 
@@ -175,112 +240,117 @@
 
                     <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" scr="{{ruta+compra.foto1}}" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" ng-scr="{{ruta+compra.foto1}}" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
-                                <h4 class="media-heading"><a href="#">Nombre del producto</a></h4>
-                                <h5 class="media-heading"> by <a href="#">{{compra.nombre}}</a></h5>
-                            </div>
-                        </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                            <input type="number"  ng-model="compra.cantidad" class="form-control" id="exampleInputEmail1" value="3">
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${{compra.precio}}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${{compra.cantidad * compra.precio}}</strong></td>
-                        <td class="col-sm-1 col-md-1">
-                            <button type="button" class="btn btn-danger"  ng-click="Remover($index)">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
-                            </button></td>
-                        </tr>
-
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td><h5>Subtotal</h5></td>
-                            <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td><h5>Estimated shipping</h5></td>
-                            <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td><h3>Total</h3></td>
-                            <td class="text-right"><h3><strong>${{Calcular()}}</strong></h3></td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>
-                                <button type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-shopping-cart" ng-click="num=2"></span> Cambiar pedido
+                                <h5 class="media-heading"><a href="#">Nombre {{compra.tipo}}</a></h4>
+                                    <h5 class="media-heading"><a href="#">{{compra.nombre}}</a></h5>
+                                </div>
+                            </div></td>
+                            <td class="col-sm-1 col-md-1" style="text-align: center">
+                                <input type="number" ng-disabled=false ng-model="compra.cantidad" class="form-control" id="exampleInputEmail1" value="3">
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong>${{compra.precio}}</strong></td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong>${{compra.cantidad * compra.precio}}</strong></td>
+                            <td class="col-sm-1 col-md-1">
+                                <button type="button" class="btn btn-danger"  ng-click="Remover($index)">
+                                    <span class="glyphicon glyphicon-remove"></span> Remove
                                 </button></td>
+                            </tr>
+
+
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td><h3>Total</h3></td>
+                                <td class="text-right"><h3><strong>${{Calcular()}}</strong></h3></td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
                                 <td>
-                                    <button type="button" class="btn btn-success" ng-click="Pagar()">
-                                        Pagar <span class="glyphicon glyphicon-play"></span>
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-shopping-cart" ng-click="num=2"></span> Cambiar pedido
                                     </button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <td>
+                                        <button type="button" class="btn btn-success" ng-click="Pagar()">
+                                            Pagar <span class="glyphicon glyphicon-play"></span>
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
 
-            <!--4) Parte  Mapa -->
-            <div class="row" ng-if="num==4"  style=" background-color:white;" >
+                <!--4) Parte  Mapa -->
+                <div class="row" ng-if="num==4"  style=" background-color:white;" >
 
-                <h1>Indique la direccion </h1>
-                <h2>Donde se enviara su pedido</h2>
+                    <h1>Indique la direccion </h1>
+                    <h2>Donde se enviara su pedido</h2>
+                    <div class="col-md-2">Indiquee la fecha:</div>
+                    <form name="mapa">
+                     <fieldset>
 
+                        <div class="input-group col-md-10">
+                            <div class="form-group  has-feedback" required>
+                             <input type="text" class="form-control" id="direccion" name="direccion" force-selection="true" g-places-autocomplete options="autocompleteOptions" ng-model="textBoxMap.info" required/>
+                             <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+                         </div>
 
-                <div class="col-md-2">Indiquee la fecha:</div>
-                <form name="mapa">
-                   <fieldset>
+                     </div> 
 
-                    <div class="input-group col-md-10">
-                        <div class="form-group  has-feedback" required>
-                           <input type="text" class="form-control" id="direccion" name="direccion" force-selection="true" g-places-autocomplete options="autocompleteOptions" ng-model="place" required/>
-                           <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-                       </div>
+                 </fieldset>
+             </form>
+             <br>
+             <br>
+    
+             <div class="row container" >
+                 <div default-style="false" center="[{{textBoxMap.info.geometry.location.lat()}}, {{textBoxMap.info.geometry.location.lng()}}]" zoom="10" style="width: 68%; float:left; height: 100% ;">
 
-                   </div> 
+                  <ng-map zoom="14"
+                  center="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman"
+                  style="height:90%" >
+                  <directions
+                  draggable="true"
+                  panel="directions-panel"
+                  travel-mode="DRIVING"
+                  origin="{{pedido.local.direccion}}"
+                  destination="[{{textBoxMap.info.geometry.location.lat()}}, {{textBoxMap.info.geometry.location.lng()}}]">
+              </directions>
+              <custom-marker id="start"
+              position="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman">
+              <div> Start Here </div>
+          </custom-marker>
+          <custom-marker id="end"
+          position="Pier St, Jackson Bay, West Coast, New Zeland">
+          <div> Ends Here </div>
+      </custom-marker>
+  </ng-map>
+</div>
 
-               </fieldset>
-           </form>
-           <br>
-           <br>
-
-           <ng-map      default-style="false" center="[{{place.geometry.location.lat()}}, {{place.geometry.location.lng()}}]" zoom="10">
-           <marker position="{{place.geometry.location.lat()}},{{place.geometry.location.lng()}}"  animation="DROP"
-           draggable="true">
-
-       </marker>
-
-   </ng-map>
-   <br>
-   <div class="error-notice">
-      <div class="oaerror danger" ng-if="mapa.direccion.$invalid">
-        <strong>Error</strong> -Indique un direccion
-    </div>
+<div id="directions-panel" style="max-height: 500px; overflow: auto;">
+</div>
+</div>
+<br>
+<div class="row" class="error-notice">
+  <div class="oaerror danger" ng-if="mapa.direccion.$invalid">
+    <strong>Error</strong> -Indique un direccion
+</div>
 </div>
 <br>
 <br>
-<button class="btn btn-info btn-block" ng-click="mapa.direccion.$valid?Mostrar():false;" type="button">Terminar!</button>
+<button class="btn btn-info btn-block" ng-click="mapa.direccion.$valid?Terminar(map):false;" type="button">Terminar!</button>
 
 <br>
 </div>
 
 <!--Parte  Botones  -->
 <div ng-show="num>1" class="row"  style="background-color:#3271a8;;">
-   <div class="col-md-6">
+ <div class="col-md-6">
     <button class="btn btn-default orange-circle-button" ng-click="Volver()" href="">Local<br /> -<br>volver<br /><span class="orange-circle-greater-than"><</span></button>
 
 </div>  
@@ -296,101 +366,3 @@
 <!--4) ----------------------------Final-----------------------------  -->
 
 
-<div ng-if="false">
-
-
-    <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="col-item">
-            <div class="post-img-content">
-                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-                <span class="post-title">
-                    <b>Perfumes</b><br>
-                    <b>Clássico</b>
-                </span>
-
-            </div>
-            <div class="info">
-                <div class="row">
-                    <div class="price col-md-6">
-                        <h5> Sample Product</h5>
-                        <h5 class="price-text-color">$199.99</h5>
-                    </div>
-                    <div class="rating hidden-sm col-md-6">
-                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                </i><i class="fa fa-star"></i>
-            </div>
-        </div>
-        <div class="separator clear-left">
-            <p class="btn-add">
-                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                <p class="btn-details">
-                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
-                </div>
-                <div class="clearfix">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="col-item">
-            <div class="photo">
-                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-            </div>
-            <div class="info">
-                <div class="row">
-                    <div class="price col-md-6">
-                        <h5> Sample Product</h5>
-                        <h5 class="price-text-color">$199.99</h5>
-                    </div>
-                    <div class="rating hidden-sm col-md-6">
-                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                </i><i class="fa fa-star"></i>
-            </div>
-        </div>
-        <div class="separator clear-left">
-            <p class="btn-add">
-                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                <p class="btn-details">
-                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
-                </div>
-                <div class="clearfix">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="col-item">
-            <div class="photo">
-                <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-            </div>
-            <div class="info">
-                <div class="row">
-                    <div class="price col-md-6">
-                        <h5> Sample Product</h5>
-                        <h5 class="price-text-color">$199.99</h5>
-                    </div>
-                    <div class="rating hidden-sm col-md-6">
-                        <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                </i><i class="fa fa-star"></i>
-            </div>
-        </div>
-        <div class="separator clear-left">
-            <p class="btn-add">
-                <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                <p class="btn-details">
-                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
-                </div>
-                <div class="clearfix">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-</div>

@@ -113,7 +113,7 @@ miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 		)
 	.state(
 		"abstractoMenu.localProductos",{
-			url:"/Local-Productos",
+			url:"/local-Productos",
 			views:{
 				"contenido":{
 
@@ -123,6 +123,31 @@ miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 			}
 		}
 		)
+	.state(
+		"abstractoMenu.AltaOferta",{
+			url:"/altaOferta",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/FormularioOferta.html",
+					controller:"controlOferta"
+				}
+			}
+		}
+		)
+	.state(
+		"abstractoMenu.localOfertas",{
+			url:"/local-Ofertas",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/Local-Productos.html",
+					controller:"controlLocal-Ofertas"
+				}
+			}
+		}
+		)
+
 	$urlRouterProvider.otherwise("/login");
 });
 

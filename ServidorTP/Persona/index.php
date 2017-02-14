@@ -33,7 +33,7 @@ $app->post('/altaCliente/{usuario}', function (Request $request, Response $respo
 		$response->getBody()->write("yaSeEncuentra");
 		return;
 	}
-	
+
 	$cli->InsertarUsuario();
 	$cli->idUsuario=$objetoAccesoDato->RetornarUltimoIdInsertado();
 	$cli->InsertarCliente();

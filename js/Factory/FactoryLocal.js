@@ -10,14 +10,20 @@ angular
 	local.CargarDatos=CargarDatos;
 	local.Alta=Alta;
 	local.TraerTodos=TraerTodos;
+
 	local.GuardarLocalProdu=GuardarLocalProdu;
 	local.TraerUnLocalProdu=TraerUnLocalProdu;
 	local.BorrarLocalProdu=BorrarLocalProdu;
+
+	local.GuardarLocalOferta=GuardarLocalOferta;
+	local.TraerUnLocalOferta=TraerUnLocalOferta;
+	local.BorrarLocalOferta=BorrarLocalOferta;
+
 	return local;
 
 	function CargarDatos(datos){
 		//En cargar los otro datos encargar php
-
+		
 		local.idlocal=datos.idlocal;
 		local.nombre= datos.nombre;
 		local.direccion= datos.direccion; 
@@ -38,6 +44,15 @@ angular
 		return ServicioLocal.BorrarLocalProdu(paquete);
 	}
 	
-
+	function GuardarLocalOferta(paquete){
+		return ServicioLocal.GuardarLocalOferta(paquete);
+	}
+	function TraerUnLocalOferta(dato){
+		return ServicioLocal.TraerUnLocalOferta(dato);
+	}
+	function BorrarLocalOferta(paquete){
+		return ServicioLocal.BorrarLocalOferta(paquete);
+	}
+	
 
 })

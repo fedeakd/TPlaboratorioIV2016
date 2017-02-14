@@ -7,6 +7,8 @@ angular
 	ruta.producto=ruta.principal+"Producto/";
 	ruta.local=ruta.principal+"Local/";
 	ruta.general=ruta.principal+"General/";
+	ruta.oferta=ruta.principal+"Oferta/";
+	ruta.pedido=ruta.principal+"Pedido/";
 	ruta.imagen="fotos/";
 	ruta.imagenTemporal=ruta.general+"SubirImagenTemporal";
 

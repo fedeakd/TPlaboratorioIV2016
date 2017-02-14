@@ -19,7 +19,7 @@ angular
 	producto.CargarArray=CargarArray;
 	return producto;
 
-	function CargarDatos(datos,ban){
+	function CargarDatos(datos){
 		//En cargar los otro datos encargar php
 
 		producto.idProducto=datos.idProducto;
@@ -44,14 +44,14 @@ angular
 				string+=') style="background-color: {{row.entity.muestra? \'#a9a9dd \':\'white \'}}; HEIGHT: inherit; "  >';
 
 var miArray=[
-{ field: 'nombre', name: 'nombre',minWidth:100,rowHeight:500,minHeight:500,
+{ field: 'nombre', name: 'nombre',minWidth:100,enableSorting: false,rowHeight:500,minHeight:500,
 cellTemplate:(string+'{{row.entity.nombre}}</div>')
 
 },
-{ field: 'precio', name: 'precio',minWidth: 100,rowHeight:500,minHeight:500,
+{ field: 'precio', name: 'precio',minWidth: 100,enableSorting: false,rowHeight:500,minHeight:500,
 cellTemplate: (string +'{{row.entity.precio}}</div>')},
 
-{ field: 'muestra', name: 'muestra',minWidth: 100,visible :false,
+{ field: 'muestra', name: 'muestra',minWidth: 100,enableSorting: false,visible :false,
 cellTemplate:'<div ng-if="false" style="background-color:blue"  >{{row.entity.nombre}}</div>'
 },
 ]
@@ -107,7 +107,6 @@ function SeleccionarAltaYBaja(viejo, nuevo){
    	var lPN=CargarArray(nuevo);
 	for(var i=0;i<lPV.length;i++) {
 		for(var q=0;q<lPN.length;q++){
-			//console.log(lPN[q].nombre +"-"+ lPV[i].nombre );
 			if(lPN[q].nombre==lPV[i].nombre){
 				lPN.splice(q,1);
 				lPV.splice(i,1);
@@ -125,7 +124,8 @@ function CargarArray(array){
 	contenedor=[];
 
 	array.forEach(function( produ){
-		contenedor.push(produ);
+		contenedor.
+		push(produ);
 	});
 	return contenedor;
 }
