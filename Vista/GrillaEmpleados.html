@@ -1,0 +1,31 @@
+<div class="container">
+ <!--table-->
+ <table style="text-align: initial; background-color: #0d78e9;" class="table table-striped">
+   <thead>
+    <tr class="info">
+        <th>Nombre</th>
+        <th>apellido</th>
+        <th>cargo</th>
+        <th>fechaRegistro</th>
+        <th>sueldo</th>
+        <th>local</th>
+    </tr>
+</thead>
+<tbody style='font-family: "Comic Sans MS", "Comic Sans", cursive;
+font-weight: 400;'>
+<tr style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}}; color:white" ng-repeat="e  in grilla">
+    <!--first example-->
+    <td>{{e.nombre}}</td>
+    <td>{{e.apellido}}</td>
+    <td>{{e.cargo}}</td>
+    <td>{{e.fechaRegistro}}</td>
+    <td>{{e.sueldo}}</td>
+    <td  >	
+        <select  style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}};" ng-change="seleccion(e.idEmpleado,e.select.idLocal,e.cargo)"  ng-options="option.nombre for option in e.combo"  ng-model="e.select" >
+        </select>
+    </td>
+</tr>
+</tbody>
+</table>
+
+</div>

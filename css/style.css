@@ -2465,17 +2465,15 @@ span.round-tab:hover {
 
 
 
-  @import url(http://fonts.googleapis.com/css?family=Raleway:100,400,700);
-body {
-  background-image: url("https://lh4.googleusercontent.com/-3eBjuQpOGFw/U47yh_-OycI/AAAAAAAAI2U/uaU5pK49N1w/s1600/normal.jpg");
-  background-repeat: no-repeat;
+
+ body {
+   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   font-family: Raleway, Open Sans, Droid Sans, Roboto, arial, sans-serif;
 }
 
 .blurred-bg {
-  background-image: url("https://lh3.googleusercontent.com/-m8TxQMObg6c/U474EWu7Y9I/AAAAAAAAI2k/xkRGoIEC1iU/s1600/blur.jpg");
   background-repeat: no-repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2485,14 +2483,7 @@ body {
 }
 .blurred-bg.tinted {
 
-  background-image: -moz-linear-gradient(440deg, rgba(18, 178, 26, 0.98), rgba(255, 255, 255, 0.2)), url("http://static0.misionesonline.net/wp-content/uploads/2016/12/f-6svg7035tej0.jpg");
-  background-image: -webkit-linear-gradient(44440deg, rgb(33, 31, 31), rgba(255, 255, 255, 0.2)), url("http://static0.misionesonline.net/wp-content/uploads/2016/12/f-6svg7035tej0.jpg");
-  background-image: linear-gradient(00deg, rgb(32, 29, 29), rgba(255, 255, 255, 0.2)), url("http://static0.misionesonline.net/wp-content/uploads/2016/12/f-6svg7035tej0.jpg");
-}
-.blurred-bg.shaded {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), url("https://lh3.googleusercontent.com/-m8TxQMObg6c/U474EWu7Y9I/AAAAAAAAI2k/xkRGoIEC1iU/s1600/blur.jpg");
-  background-size: 100%;
-
+ background-image: linear-gradient(00deg, rgb(32, 29, 29), rgba(255, 255, 255, 0.2)), url("https://admissions.msu.edu/img/degree-detail/degreedetail3/CNSstatisticsbs.jpg");
 }
 
 .box {
@@ -2523,4 +2514,137 @@ body {
 }
 .box .content {
   margin: auto;
+}
+
+
+/*Pdf  formoto  boton */
+
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600);
+.icons {
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.icon {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  margin: 0 5px;
+}
+.icon::after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-radius: 0 2px;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.icon--doc {
+  background-color: #4285f4;
+}
+.icon--doc::after {
+  background: -webkit-linear-gradient(45deg, #8ab4f8 50%, #fff 50%);
+  background: linear-gradient(45deg, #8ab4f8 50%, #fff 50%);
+}
+.icon--doc i::before {
+  content: '☰';
+}
+.icon--pdf {
+  background-color: #db4437;
+}
+.icon--pdf::after {
+  background: -webkit-linear-gradient(45deg, #e78178 50%, #fff 50%);
+  background: linear-gradient(45deg, #e78178 50%, #fff 50%);
+}
+.icon--pdf i::before {
+  content: '☵';
+}
+.icon--sheets {
+  background-color: #0f9d58;
+}
+.icon--sheets::after {
+  background: -webkit-linear-gradient(45deg, #16e37f 50%, #fff 50%);
+  background: linear-gradient(45deg, #16e37f 50%, #fff 50%);
+}
+.icon--sheets i::before {
+  content: '⊟';
+}
+.icon--slides {
+  background-color: #f5b707;
+}
+.icon--slides::after {
+  background: -webkit-linear-gradient(45deg, #facd4f 50%, #fff 50%);
+  background: linear-gradient(45deg, #facd4f 50%, #fff 50%);
+}
+.icon--slides i::before {
+  content: '⧉';
+}
+.icon--code {
+  background-color: #00a78e;
+}
+.icon--code::after {
+  background: -webkit-linear-gradient(45deg, #00f4cf 50%, #fff 50%);
+  background: linear-gradient(45deg, #00f4cf 50%, #fff 50%);
+}
+.icon--code i::before {
+  content: '< >';
+}
+.icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  font-weight: 500;
+}
+.icon i::before, .icon i::after {
+  display: block;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.icon i::before {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0;
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+.icon i::after {
+  content: attr(title);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+.icon:hover {
+  border-radius: 2px 4px 2px 2px;
+}
+.icon:hover::after {
+  width: 12px;
+  height: 12px;
+}
+.icon:hover i::before {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+.icon:hover i::after {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }

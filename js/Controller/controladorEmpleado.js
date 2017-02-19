@@ -1,4 +1,4 @@
-miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryEmpleado){
+miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryEmpleado,FactoryAlerta){
 	$scope.show=true;
 	$scope.options = [
 	{
@@ -21,20 +21,83 @@ miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$au
 	$scope.user.sueldo=1234;
 	console.log("hola mundo");
 	$scope.Aceptar= function(){
-		//$scope.user.cargo=parseInt($scope.user.cargo.value);
 		FactoryEmpleado.CargarDatos($scope.user,true);
 		FactoryEmpleado.usuario.cargo=parseInt($scope.user.cargo.value);
 		FactoryEmpleado.Alta()
 		.then(function(respuesta) {
-			console.log(respuesta);
+
 			if(respuesta==="ok"){
+				FactoryAlerta.Mostrar("Felicitaciones","Has registrado un empleado","success");
 				$state.go("abstractoMenu.principal");
 			}
 			else{
-				alert("Usuario o  mail ya se  encuentra intenta con otro ");
+				console.log(respuesta);
+				FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
+			}
+		},function errorCallback(response) {        
+
+			FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
+		});
+
+	}
+
+}).controller("controlGrllaEmpleado",function($scope,$state,FactoryCliente,$auth,FactoryLocal,FactoryEmpleado,FactoryAlerta){
+	console.log("Mejor cada dia es la clave");
+	$scope.grillaUno={};
+	$scope.grillaUno.columnDefs=FactoryEmpleado.ConfigurarGrilla();
+	$scope.opciones=["fefe","fefe2","Fefe3"];
+	$scope.prueba=[];
+	$scope.selected = $scope.opciones[0];
+	$scope.grillaUno.onRegisterApi= function(gridApi) {
+		grid = gridApi.grid;
+	}
+	$scope.seleccion= function(idEmpleado,idLocal,cargo){
+		paquete={
+			idLocal:idLocal,
+			idEmpleado:idEmpleado,
+			cargo:cargo
+		};
+		console.log(paquete);
+		FactoryEmpleado.CambiarEmpleadoLocal(paquete)
+		.then(function(respuesta) {
+			if(respuesta=="ya asignado"){
+				alertify.error("Lo siento ya tenemos asignado un ENCARGADO en ese local ");
+			}
+			else{
+				alertify.success("Se han hecho  los cambios");
 			}
 		})
 
 	}
+
+	FactoryLocal.TraerTodos().then(function(local) {
+		local.push({idLocal:-1 , nombre:"sin asignar"});
+		FactoryEmpleado.TraerAtodosLosEmpleado()
+		.then(function(respuesta) {
+			var num=0;
+			var grilla=[];
+			respuesta.forEach(function(e) {
+				e.combo=local;
+				var idL=-1;
+				for(var i=0;i<local.length;i++){
+					if(e.idLocal==local[i].idLocal){
+						idL=i;
+					}
+				}
+				console.log(local[local.length-1]);
+				e.select=e.combo[(idL!=-1?idL:local.length-1)];
+
+				grilla.push(e);
+				num++;
+			})
+
+			console.log(respuesta);
+			$scope.grilla=grilla;
+			$scope.grillaUno.data=grilla;
+		})
+
+	});
+
+
 
 })

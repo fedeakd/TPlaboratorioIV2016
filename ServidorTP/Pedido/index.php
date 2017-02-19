@@ -30,7 +30,19 @@ $app->post('/alta/{pedido}', function (Request $request, Response $response,$arg
 });
 
 
+$app->get('/TraerPedidoDelUsuario/{idEmpleado}', function (Request $request, Response $response,$args) {
+	$datos=json_decode($args['idEmpleado']);
+	if($datos==-1){
 
+		$response->getBody()->write(json_encode(Pedido::TraerTodos($datos)));
+	}
+	else{
+		$response->getBody()->write(json_encode(Pedido::TraerPedidoDelUsuario($datos)));
+		
+	}
+
+	return $response;
+});
 $app->get('/TraerTodos', function (Request $request, Response $response) {
 	//$producto=Producto::TraerTodos();
 	$response->getBody()->write(json_encode(Producto::TraerTodos()));

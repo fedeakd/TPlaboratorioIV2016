@@ -1,4 +1,4 @@
-miApp.controller("controlAltaProducto",function($scope,$state,$auth,FileUploader,FactoryRuta,FactoryProducto){
+miApp.controller("controlAltaProducto",function($scope,$state,$auth,FileUploader,FactoryRuta,FactoryProducto,FactoryAlerta){
 
 	
 	$scope.show=true;
@@ -30,14 +30,19 @@ miApp.controller("controlAltaProducto",function($scope,$state,$auth,FileUploader
 			FactoryProducto.CargarDatos($scope.producto);
 			console.log(FactoryProducto);
 			FactoryProducto.Alta().then(function(respuesta) {
-				if(respuesta=="ok"){
-					console.log("todo salio bien");
+
+				if(respuesta==="ok"){
+					FactoryAlerta.Mostrar("Felicitaciones","Has registrado un producto","success");
+					$state.go("abstractoMenu.principal");
 				}
 				else{
 					console.log(respuesta);
+					FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
 				}
+			},function errorCallback(response) {        
 
-			})
+				FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
+			});
 		}
 
 

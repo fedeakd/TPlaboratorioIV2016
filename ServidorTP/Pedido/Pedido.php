@@ -9,6 +9,9 @@ class Pedido{
 	public $productos;
 	public $ofertas;
 	public $precio;
+	public $nombreL;
+	public $nombreC;
+
 	public static function CargarDatos($dato){
 		$pedido=new Pedido();
 		//$pedido->idProducto=$dato->idProducto;
@@ -69,9 +72,21 @@ class Pedido{
 	public static function TraerTodos(){
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 
-		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT *  from productos");
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT  c.nombre AS 'nombreC', l.nombre AS 'nombreL', p.precio , p.fecha FROM  pedidos AS p
+			INNER JOIN locales AS  l  ON l.idLocal= p.idLocal  
+			INNER JOIN clientes AS c  ON c.idCliente=p.idCliente");
 		$consulta->execute();     
-		return $consulta->fetchAll(PDO::FETCH_CLASS, "Producto"); 
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "Pedido"); 
+	}
+	public static function TraerPedidoDelUsuario($idCliente){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT  c.nombre AS 'nombreC', l.nombre AS 'nombreL', p.precio , p.fecha FROM  pedidos AS p
+			INNER JOIN locales AS  l  ON l.idLocal= p.idLocal  
+			INNER JOIN clientes AS c  ON c.idCliente=p.idCliente
+			WHERE p.idCliente=$idCliente;");
+		$consulta->execute();     
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "Pedido"); 
 	}
 
 }

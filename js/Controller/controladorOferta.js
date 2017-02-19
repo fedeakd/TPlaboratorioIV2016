@@ -1,4 +1,4 @@
-miApp.controller("controlOferta",function($scope,$state,$auth,FactoryProducto,FactoryOferta,FileUploader,FactoryRuta){
+miApp.controller("controlOferta",function($scope,$state,$auth,FactoryProducto,FactoryOferta,FileUploader,FactoryRuta,FactoryAlerta){
 	$scope.show=true;
 	$scope.oferta={};
 	$scope.oferta.nombre="3 grande de muzarrela";
@@ -35,7 +35,18 @@ miApp.controller("controlOferta",function($scope,$state,$auth,FactoryProducto,Fa
 		$scope.oferta.productos=$scope.grillaOferta.data;
 		FactoryOferta.CargarDatos($scope.oferta);
 		FactoryOferta.Alta().then(function(respuesta) {
-			console.log(respuesta);
+
+			if(respuesta==="ok"){
+				FactoryAlerta.Mostrar("Felicitaciones","Has registrado una oferta","success");
+				$state.go("abstractoMenu.principal");
+			}
+			else{
+				console.log(respuesta);
+				FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
+			}
+		},function errorCallback(response) {        
+
+			FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
 		});
 	}
 	$scope.SeleccionOferta=function(produ,index){

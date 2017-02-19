@@ -19,8 +19,10 @@ angular
 	usuario.CambiarEstado=CambiarEstado;
 	return usuario;
 	function CargarUsuario(per){
+
 		usuario.mail= per.mail;
 		usuario.clave= per.clave;
+	
 
 	}
 	function CargarDatos(per){
@@ -47,6 +49,10 @@ angular
 		return ServicioPersona.TraerTodos();
 	}
 	function DameFecha(fecha){
+		if (typeof fecha) {	
+			console.log(fecha);
+			return	fecha;
+		};
 		var dia= fecha.getDate()<10? "0"+ fecha.getDate(): fecha.getDate();
 		var mes= fecha.getMonth()+1<10? "0"+ (fecha.getMonth()+1): fecha.getMonth()+1;
 		return fecha.getFullYear()+"-"+mes+"-"+dia;

@@ -73,7 +73,7 @@ angular
 			string+=tipo;
 			string+=') style="background-color: {{row.entity.muestra? \'#a9a9dd \':\'white \'}}; HEIGHT: inherit; "  >';
 grilla=[
-{ field: 'nombre', name: 'nombre',minWidth:100,enableSorting: false,rowHeight:500,minHeight:500,
+{ field: 'nombre', name: 'nombre',minWidth:100,enableSorting: false,rowHeight:1000,minHeight:1000,
 cellTemplate:(string+'{{row.entity.nombre}}</div>')
 
 },

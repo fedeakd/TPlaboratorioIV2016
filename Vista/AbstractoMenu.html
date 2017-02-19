@@ -49,15 +49,18 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="navbar-collapse-3">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="#/menu/altaPedido">Alta pedido</a></li>
-								<li><a href="#/menu/agregarEmpleado">Alta empleado</a></li>
-								<li><a href="#/menu/agregarProducto">Alta producto</a></li>
-								<li><a href="#/menu/agregarLocal">Alta local</a></li>
-								<li><a href="#/menu/altaOferta">Alta oferta</a></li>
-								<li><a href="#/menu/grillaDeUsuarios">Grillas usuarios</a></li>
-								<li><a href="#/menu/local-Productos">Local  productos</a></li>
-								<li><a href="#/menu/grillaDeUsuarios">Grillas usuarios</a></li>
-								<li><a href="#/menu/local-Ofertas">local ofertas</a></li>
+								<li ng-if="(cargo=='cliente'|| cargo=='empleado')" ><a href="#/menu/altaPedido">Alta pedido</a></li>
+								<li ng-if="(cargo=='administrador'|| cargo=='encargado')"><a href="#/menu/agregarEmpleado">Alta empleado</a></li>
+								<li ng-if="(cargo=='empleado')"><a href="#/menu/agregarProducto">Alta producto</a></li>
+								<li ng-if="(cargo=='administrador')"><a href="#/menu/agregarLocal">Alta local</a></li>
+								<li ng-if="(cargo=='empleado')"><a href="#/menu/altaOferta">Alta oferta</a></li>
+								<li ng-if="(cargo=='administrador'|| cargo=='empleado' || cargo=='encargado')"><a href="#/menu/grillaDeUsuarios">Grillas usuarios</a></li>
+								<li ng-if="(cargo=='encargado')"><a href="#/menu/local-Productos">Local  productos</a></li>
+								<li ng-if="true"><a href="#/menu/GraficosEstadistica">Grafico y estadistica</a></li>
+								<li ng-if="(cargo=='encargado')"><a href="#/menu/local-Ofertas">local ofertas</a></li>
+								<li ng-if="true"><a href="#/menu/listaPedidos">Lista de pedido</a></li>
+								<li ng-if="true"><a href="#/menu/grillaEmpleados">Grilla empleados</a></li>
+								<li ng-if="true"><a ng-click="deslogeo()">Salir</a></li>
 								<li class="s-icon">
 									<a href="#" id="addClass"><img src="image/pizza (2).png" alt=""></a>
 
@@ -66,9 +69,6 @@
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container -->
 				</nav><!-- /.navbar -->
-
-
-
 
 
 			</div>

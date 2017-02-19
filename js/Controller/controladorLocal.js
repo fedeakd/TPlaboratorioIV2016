@@ -1,4 +1,4 @@
-miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,FileUploader,FactoryRuta){
+miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,FileUploader,FactoryRuta,FactoryAlerta){
 	$scope.show=true;
 	$scope.local={};
 	$scope.local.nombre="Muzzarela";
@@ -34,22 +34,27 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 
 		FactoryLocal.imagenes=$scope.imagenes;
 		FactoryLocal.CargarDatos($scope.local);
-		FactoryLocal.Alta().then(function(respuesta) {
-			if(respuesta=="ok"){
-				console.log("todo salio bien");
+		FactoryLocal.Alta()	.then(function(respuesta) {
+
+			if(respuesta==="ok"){
+				FactoryAlerta.Mostrar("Felicitaciones","Has registrado un local","success");
+				$state.go("abstractoMenu.principal");
 			}
 			else{
 				console.log(respuesta);
+				FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
 			}
+		},function errorCallback(response) {        
 
-		})
+			FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
+		});
 	}
 })
 
 
 
 
-.controller("controlLocal-Productos",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FileUploader,FactoryRuta){
+.controller("controlLocal-Productos",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FileUploader,FactoryRuta,FactoryAlerta){
 
 	var localProduViejo=[];
 	var todosLosProductos=[];
@@ -110,6 +115,8 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 
 			});
 		}
+		FactoryAlerta.Mostrar("Felicitaciones","Se ha logrado los cambio","success");
+		$state.go("abstractoMenu.principal");
 
 	}
 	$scope.Seleccionar=function(estado,index,tipo){
@@ -126,7 +133,7 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 		}
 	}
 }).
-controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FactoryRuta,FactoryOferta){
+controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FactoryRuta,FactoryOferta,FactoryAlerta){
 
 	var localOfertaVieja=[];
 	var todasLasOfertas=[];
@@ -205,7 +212,8 @@ controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,Fact
 				console.log(respuesta);
 			});
 		}
-
+		FactoryAlerta.Mostrar("Felicitaciones","Se ha logrado los cambio","success");
+		$state.go("abstractoMenu.principal");
 	}
 
 })

@@ -6,7 +6,8 @@ var miApp= angular.module("AngularABM",['ui.router','ui.bootstrap','angularFileU
 	'ui.grid.exporter',
 	'ui.grid.edit',
 	'ngMap',
-	'google.places'
+	'google.places',
+	'chart.js'
 	]);
 miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 	$authProvider.loginUrl='Laboratorio4/TPlaboratorioIV2016/PHP/auth.php';
@@ -147,6 +148,44 @@ miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 			}
 		}
 		)
+	.state(
+		"abstractoMenu.graficoEstadistica",{
+			url:"/GraficosEstadistica",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/GraficosEstadistica.html",
+					controller:"controladorGraficoEstadistica"
+				}
+			}
+		}
+		)
+	.state(
+		"abstractoMenu.listaPedidos",{
+			url:"/listaPedidos",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/listaPedidos.html",
+					controller:"controlListaPedidos"
+				}
+			}
+		}
+		)
+
+	.state(
+		"abstractoMenu.grillaEmpleados",{
+			url:"/grillaEmpleados",
+			views:{
+				"contenido":{
+
+					templateUrl:"Vista/GrillaEmpleados.html",
+					controller:"controlGrllaEmpleado"
+				}
+			}
+		}
+		)
+
 
 	$urlRouterProvider.otherwise("/login");
 });

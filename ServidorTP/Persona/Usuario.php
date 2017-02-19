@@ -27,7 +27,8 @@ class Usuario{
 		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT u.idUsuario,  u.nombre as 'usuario', u.clave, u.mail, u.fechaRegistro
 			, c.nombre as 'cargo', e.nombre as 'estado' from usuarios as u
 			inner join cargos as c  on u.idCargo = c.idCargo  
-			inner join estados as e  on u.idEstado = e.idEstado");
+			inner join estados as e  on u.idEstado = e.idEstado
+			WHERE u.idEstado=1 and u.idCargo<>4 ");
 		$consulta->execute();     
 		return $consulta->fetchAll(PDO::FETCH_CLASS, "Usuario");
 	}

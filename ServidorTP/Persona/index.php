@@ -52,18 +52,40 @@ $app->put('/CambiarEstado/{usuario}', function (Request $request, Response $resp
 	$response->getBody()->write("ok");
 
 });
+
+$app->put('/CambiarEmpleadoLocal/{paquete}', function (Request $request, Response $response,$args) {
+	$paquete=json_decode($args['paquete']);
+	if ($paquete->cargo=="encargado") {
+		if ( Empleado::ComprobarEncargadoLocal($paquete->idLocal)>0) {
+			echo "ya asignado";
+			return;
+		}
+		
+
+	}
+	Empleado::CambiarEmpleadoLocal($paquete->idLocal,$paquete->idEmpleado);
+	var_dump($paquete);
+
+});
 $app->get('/verificar/{usuario}', function ($request, $response, $args) {
 	$usuario=json_decode($args['usuario']);
 
 	//$response->getBody()->write(json_encode(Usuario::TraerUnUsuario($usuario->mail,$usuario->clave)));
 
 	$usuario=Usuario::TraerUnUsuario($usuario->mail,$usuario->clave); 
+	if($usuario==FALSE){
+		$response->getBody()->write("datoIncorrecto");
+	}
+	else if($usuario->estado!="inactivo"){
+		$response->getBody()->write("inactivo");
+	}
 	//var_dump($usuario);
-	if( $usuario->cargo=="cliente"){
+	else	if( $usuario->cargo=="cliente"){
 
 		$cliente= new Cliente();
 		$cliente->CargarUsuario($usuario);
 		$cliente->TraerUnCliente($usuario->idUsuario);
+
 		$response->getBody()->write(json_encode($cliente));
 
 		
@@ -105,4 +127,11 @@ $app->put('/modificar/{usuario}' , function ($request, $response, $args)  {
 	$response->getBody()->write("ok");
 	return $response;
 });
+
+$app->get('/TraerAtodosLosEmpleado', function (Request $request, Response $response) {
+	$response->getBody()->write(json_encode(Empleado::TraerAtodosLosEmpleado()));
+
+	return $response;
+});
+
 $app->run(); 

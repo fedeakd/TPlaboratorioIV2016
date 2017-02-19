@@ -291,13 +291,13 @@
 
                     <h1>Indique la direccion </h1>
                     <h2>Donde se enviara su pedido</h2>
-                    <div class="col-md-2">Indiquee la fecha:</div>
+                    <div class="col-md-2">Indique la direccion:</div>
                     <form name="mapa">
                      <fieldset>
 
                         <div class="input-group col-md-10">
                             <div class="form-group  has-feedback" required>
-                             <input type="text" class="form-control" id="direccion" name="direccion" force-selection="true" g-places-autocomplete options="autocompleteOptions" ng-model="textBoxMap.info" required/>
+                             <input type="text" class="form-control" id="direccion" autocomplete="off" name="direccion" force-selection="true" g-places-autocomplete options="autocompleteOptions" ng-model="textBoxMap.info" required/>
                              <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
                          </div>
 

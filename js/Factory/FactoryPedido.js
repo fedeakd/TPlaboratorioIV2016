@@ -14,6 +14,8 @@ angular
 	pedido.CargarDatos=CargarDatos;
 	pedido.Alta=Alta;
 	pedido.TraerTodos=TraerTodos;
+	pedido.TraerPedido=TraerPedido;
+	pedido.ConfigurarGrilla=ConfigurarGrilla;
 	return pedido;
 	function CargarDatos(datos){
 		pedido.direccion= datos.direccion;
@@ -30,5 +32,19 @@ angular
 	function TraerTodos (){
 		return ServicioPedido.TraerTodos();
 
+	}
+	function TraerPedido(idEmpleado){
+		return ServicioPedido.TraerPedido(idEmpleado);
+	}
+
+
+	function ConfigurarGrilla(){
+		var miArray=[
+		{ field: 'nombreC', name: 'Cliente',minWidth: 100},
+		{ field: 'nombreL', name: 'Local',minWidth: 200},
+		{ field: 'precio', name: 'precio',minWidth: 100},
+		{ field: 'fecha', name: 'fecha',minWidth: 50},
+		]
+		return miArray;
 	}
 });

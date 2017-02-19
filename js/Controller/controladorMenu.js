@@ -2,6 +2,7 @@ miApp.controller("controlMenu",function($scope,$state,FactoryCliente,$auth,Facto
 	if($auth.isAuthenticated()){//Una vez que este logeado
 		console.log($auth.getPayload());
 		$scope.nick=$auth.getPayload().usuario;
+		$scope.cargo=$auth.getPayload().cargo;
 		if($auth.getPayload().cargo=="cliente"){
 			FactoryCliente.CargarDatos($auth.getPayload(),false);
 			console.log(FactoryCliente);
@@ -14,8 +15,14 @@ miApp.controller("controlMenu",function($scope,$state,FactoryCliente,$auth,Facto
 		}
 	}
 	else{
-		//$state.go("login");
-		//alert("Primero Logeate");
+		$state.go("login");
+		
+	}
+
+	$scope.deslogeo=function(){
+		$auth.logout();
+		$state.go("login");
+		
 	}
 	$(function () {
 		/* START OF DEMO JS - NOT NEEDED */

@@ -13,7 +13,10 @@ angular
 	empleado.usuario=FactoryUsuario;
 
 	empleado.CargarDatos=CargarDatos;
+	empleado.TraerAtodosLosEmpleado=TraerAtodosLosEmpleado;
 	empleado.Alta=Alta;
+	empleado.ConfigurarGrilla=ConfigurarGrilla;
+	empleado.CambiarEmpleadoLocal=CambiarEmpleadoLocal;
 	return empleado;
 
 	function CargarDatos(per,ban){
@@ -32,4 +35,36 @@ angular
 		return ServicioPersona.AltaEmpleado(empleado);
 	}
 
+	function TraerAtodosLosEmpleado(){
+		return ServicioPersona.TraerAtodosLosEmpleado();
+	}
+
+	function CambiarEmpleadoLocal(paquete){
+		return ServicioPersona.CambiarEmpleadoLocal(paquete);
+	}
+
+	function ConfigurarGrilla(){
+		var miArray=[
+		{ field: 'nombre', name: 'nombre',minWidth: 100},
+		{ field: 'apellido', name: 'apellido',minWidth: 200},
+		{ field: 'cargo', name: 'cargo',minWidth: 100},
+		{ field: 'fechaRegistro', name: 'fechaRegistro',minWidth: 50},
+		{ field: 'sueldo', name: 'sueldo',minWidth: 50},
+		{
+			name:"prueba",cellTemplate:'vista/uiSelect.html'
+		},
+		{
+			field: 'gender',
+			editType: 'dropdown',
+			enableCellEdit: true,
+			editableCellTemplate: 'ui-grid/dropdownEditor',
+			editDropdownOptionsArray: "local",
+			editDropdownIdLabel: 'type',
+			editDropdownValueLabel: 'type'
+		}
+
+
+		]
+		return miArray;
+	}
 })

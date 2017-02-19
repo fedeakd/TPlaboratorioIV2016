@@ -9,6 +9,7 @@ angular
 	ruta.general=ruta.principal+"General/";
 	ruta.oferta=ruta.principal+"Oferta/";
 	ruta.pedido=ruta.principal+"Pedido/";
+	ruta.graficoEstadistica=ruta.principal+"GraficoEstadistica/";
 	ruta.imagen="fotos/";
 	ruta.imagenTemporal=ruta.general+"SubirImagenTemporal";
 

@@ -1,14 +1,55 @@
-miApp.controller("controlLogin",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryEmpleado){
+miApp.controller("controlLogin",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryEmpleado,FactoryAlerta){
 	$scope.show=true;
 	$scope.user={};
 	$scope.user.mail="menosPlata@masHambre.com";
 	$scope.user.clave="1234";
+	if($auth.isAuthenticated()){
+		$state.go("abstractoMenu.principal");
+	}
+	$scope.DarLogin= function(num){
+
+		userr="";
+		clave="";
+		switch(num){
+			case 1://cliente
+			userr="cliente@cliente.com";
+			clave="cliente";
+			break;
+			case 2://empelado
+			userr="empleado@empleado.com";
+			clave="1234";
+			break;
+			case 3://encargado
+			userr="encargado@encargado.com";
+			clave="1234";
+			break;
+			case 4://Administrador
+			userr="administrador@administrador.com";
+			clave="1234";
+			break;
+
+		}
+		$scope.user.mail=userr;
+		$scope.user.clave=clave;
+		$scope.Logearse();
+	}
 	$scope.Logearse= function(){
+
 		FactoryUsuario.CargarUsuario($scope.user);
 		FactoryUsuario.VerificarLogin()
 		.then(function(respuesta) { 
-			if(respuesta!="false"){	
+			if(respuesta=="datoIncorrecto"){
+				FactoryAlerta.Mostrar("Error","Error, contraseña o clave incorrecta","error");
+				return;
+			}
+			else if(respuesta=="inactivo"){
+				FactoryAlerta.Mostrar("Error","Error, La cuenta se encuentra inactiva por decisión del administrador o la cuenta aun no fue activa","error");
+				return;
+
+			}
+			else{	
 				$auth.login(respuesta).then(function(response) {
+					console.log(response);
 					$state.go("abstractoMenu.principal");
 					
 
@@ -27,13 +68,12 @@ miApp.controller("controlLogin",function($scope,$state,FactoryCliente,$auth,Fact
 
 	}
 	$scope.IrRegistrar=function(){
-		console.log("ASDASOL")
 		$state.go("registro");
 
 	}
 })
 
-miApp.controller("controlRegistro",function($scope,$state,FactoryCliente){
+miApp.controller("controlRegistro",function($scope,$state,FactoryCliente,FactoryAlerta){
 	$scope.show=true;
 	
 	$scope.user={};
@@ -47,27 +87,32 @@ miApp.controller("controlRegistro",function($scope,$state,FactoryCliente){
 	$scope.user.mail="soii_fede12@hotmail.com";
 	$scope.user.clave="1234"; 
 	$scope.user.rclave="1234";
+
+
+
 	$scope.Mostrar=function(){
 		FactoryCliente.CargarDatos($scope.user,true);
+
+
 		FactoryCliente.Alta()
 		.then(function(respuesta) { 
 			console.log(respuesta);
 			if(respuesta==="yaSeEncuentra"){
-				console.log("Lo siento ya se encuenta ");
+				FactoryAlerta.Mostrar("Mensaje","Lo siento, el usuario o mail ya se encuentra","warning");
 			}
 			else if(respuesta==="ok"){
-				console.log("Hacer algo ...");
-
+				FactoryAlerta.Mostrar("Felicitaciones","Te has registrado","success");
+				$state.go("login");
 			}
 			else{
-				console.log(respuesta);
+				FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
 			}
 
 			
 
 		},function errorCallback(response) {        
 
-			console.log( response.data);           
+			FactoryAlerta.Mostrar("Error","Error algo salio mal, lo intentare solucionar al brevedad","error");
 		});
 
 	}

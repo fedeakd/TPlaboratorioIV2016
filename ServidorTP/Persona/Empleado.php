@@ -7,6 +7,7 @@ class Empleado extends Usuario{
 	public $documento;
 	public $sueldo;
 	public $local;
+	public $idLocal;
 	public static function Prueba(){
 		echo "hola";
 	}
@@ -58,6 +59,36 @@ class Empleado extends Usuario{
 		
 		return $consulta->fetchObject('Cliente');
 
+	}
+	public static function TraerAtodosLosEmpleado(){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT  u.fechaRegistro, c.nombre  as cargo , e.nombre, e.apellido, e.sueldo, e.idEmpleado,e.idLocal FROM usuarios as u
+			INNER JOIN  empleados as e ON u.idUsuario= e.idEmpleado
+			INNER JOIN  cargos  as c ON u.idCargo= c.idCargo 
+			WHERE u.idEstado=1 and u.idCargo<>4");
+		$consulta->execute();
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "Empleado");
+	}
+
+	public static function ComprobarEncargadoLocal($idLocal){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta=$objetoAccesoDato->RetornarConsulta("SELECT COUNT(*) AS 'cantidad' FROM locales as l
+			INNER JOIN empleados as e ON e.idLocal= l.idLocal
+			INNER JOIN usuarios as u ON u.idUsuario=e.idEmpleado
+			WHERE u.idCargo=3 and  l.idLocal=$idLocal ");
+		$consulta->execute();
+		return $consulta->fetchAll()[0][0];
+	}
+	public static  function CambiarEmpleadoLocal($idLocal, $idEmpleado){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		if($idLocal==-1){
+			$consulta =$objetoAccesoDato->RetornarConsulta("UPDATE empleados SET idLocal=NULL  WHERE idEmpleado=$idEmpleado");
+		}
+		else{
+			$consulta =$objetoAccesoDato->RetornarConsulta("UPDATE empleados SET idLocal=$idLocal  WHERE idEmpleado=$idEmpleado");
+		}
+		
+		$consulta->execute();
 	}
 }
 ?>

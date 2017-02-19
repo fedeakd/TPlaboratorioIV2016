@@ -6,7 +6,10 @@ angular
 	this.AltaEmpleado=AltaEmpleado;
 	this.VerificarLogin=VerificarLogin;
 	this.TraerTodos=TraerTodos;
+	this.TraerAtodosLosEmpleado=TraerAtodosLosEmpleado;
 	this.CambiarEstado=CambiarEstado;
+	this.CambiarEmpleadoLocal=CambiarEmpleadoLocal;
+	
 	function AltaCliente(persona){
 		return $http.post(urlPersona+"altaCliente/"+JSON.stringify(persona))
 		.then(function(respuesta) {     	
@@ -38,8 +41,24 @@ angular
 
 		});
 	}
+	function TraerAtodosLosEmpleado(){
+		return $http.get(urlPersona+"TraerAtodosLosEmpleado")
+		.then(function(respuesta) {     	
+			
+			return respuesta.data;
+
+		});
+	}
 	function CambiarEstado(persona){
 		return $http.put(urlPersona+"CambiarEstado/"+JSON.stringify(persona))
+		.then(function(respuesta) {     	
+			
+			return respuesta.data;
+
+		});
+	} 
+	function CambiarEmpleadoLocal(paquete){
+		return $http.put(urlPersona+"CambiarEmpleadoLocal/"+JSON.stringify(paquete))
 		.then(function(respuesta) {     	
 			
 			return respuesta.data;
