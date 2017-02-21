@@ -118,3 +118,416 @@ p {
             transform: scale(1);
   }
 }
+
+
+
+
+
+
+
+
+
+
+.container2 {
+  width: 500px;
+    position: relative;
+  margin: auto;
+}
+
+
+.pizza2 {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 200px;
+  height: 270px;
+}
+.pizza2:nth-child(1) {
+  left: -30%;
+}
+.pizza2:nth-child(2) {
+  left: 15%;
+}
+.pizza2:nth-child(3) {
+  left: 60%;
+}
+
+.body {
+  position: absolute;
+  width: 200px;
+  height: 270px;
+  z-index: 2;
+  animation: bounce 0.5s linear infinite;
+}
+
+.slice {
+  position: absolute;
+  top: 0%;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 210px solid #C99752;
+  border-radius: 0 0 90px 90px;
+  z-index: 2;
+}
+
+.cheese {
+  position: absolute;
+  top: 0%;
+  left: 6%;
+  width: 1px;
+  height: 1px;
+  border-left: 88px solid transparent;
+  border-right: 88px solid transparent;
+  border-bottom: 190px solid #FFCA51;
+  border-radius: 0 0 90px 90px;
+  z-index: 3;
+}
+
+.pepperoni {
+  position: absolute;
+  top: 50px;
+  left: -10px;
+  width: 35px;
+  height: 35px;
+  background: #DC493A;
+  border-radius: 50%;
+}
+.pepperoni:after {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  background: #e05d50;
+  content: " ";
+  border-radius: 50%;
+}
+.pepperoni:before {
+  content: " ";
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 8px;
+  height: 8px;
+  background: #e05d50;
+  border-radius: 50%;
+}
+.pepperoni:nth-child(1) {
+  top: 150px;
+  left: 30px;
+}
+.pepperoni:nth-child(2) {
+  top: 120px;
+  left: -50px;
+}
+
+.eye {
+  position: absolute;
+  width: 7px;
+  height: 15px;
+  background: #222222;
+  border-radius: 50%;
+  z-index: 4;
+}
+.eye--left {
+  top: 34%;
+  left: 40%;
+}
+.eye--right {
+  top: 34%;
+  right: 40%;
+}
+
+.mouth {
+  position: absolute;
+  top: 120px;
+  left: 43%;
+  width: 30px;
+  height: 18px;
+  background: #222222;
+  border-radius: 217px 217px 300px 300px / 64px 64px 150px 150px;
+  overflow: hidden;
+  z-index: 3;
+  animation: mouth-animation 0.5s infinite;
+}
+.mouth:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 10px;
+  background: #CC444B;
+  border-radius: 284px 287px 107px 153px / 150px 150px 0px 12px;
+}
+
+.arm {
+  position: absolute;
+  width: 5px;
+  height: 60px;
+  background: #222222;
+  border-radius: 20px;
+  z-index: 1;
+}
+.arm--left {
+  top: 29%;
+  left: 20%;
+  animation: arm-left-animation 0.3s linear infinite;
+}
+.arm--left:after {
+  position: absolute;
+  top: -14px;
+  left: -5px;
+  width: 15px;
+  height: 15px;
+  background: #222222;
+  content: " ";
+  border-radius: 50%;
+}
+.arm--right {
+  top: 29%;
+  right: 20%;
+  animation: arm-right-animation 0.3s linear infinite;
+}
+.arm--right:after {
+  position: absolute;
+  top: -14px;
+  left: -5px;
+  width: 15px;
+  height: 15px;
+  background: #222222;
+  content: " ";
+  border-radius: 50%;
+}
+
+.foot {
+  position: absolute;
+  width: 5px;
+  height: 60px;
+  background: #222222;
+  border-radius: 20px;
+  z-index: 1;
+}
+.foot--left {
+  top: 75%;
+  left: 40%;
+}
+.foot--left:after {
+  content: " ";
+  position: absolute;
+  top: 95%;
+  left: -25px;
+  width: 30px;
+  height: 5px;
+  background: #222222;
+  border-radius: 20px;
+}
+.foot--right {
+  top: 75%;
+  right: 40%;
+}
+.foot--right:after {
+  content: " ";
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 30px;
+  height: 5px;
+  background: #222222;
+  border-radius: 20px;
+}
+
+.bottle {
+  position: absolute;
+  top: 80%;
+  width: 30px;
+  height: 60px;
+  background: #684633;
+  border-radius: 116px 116px 114px 122px / 120px 120px 27px 34px;
+  box-shadow: 8px 0 0 #573a2b inset, -2px 0 0 #8a5d44 inset;
+}
+.bottle:after {
+  position: absolute;
+  top: -30%;
+  left: 21.5%;
+  width: 15px;
+  height: 25px;
+  background: #684633;
+  border-radius: 22px 22px 79px 102px / 46px 46px 0px 0px;
+  content: " ";
+  box-shadow: 8px 0 0 #573a2b inset, -2px 0 0 #8a5d44 inset;
+}
+
+.pizza2:nth-child(4) {
+  top: 45%;
+  left: 105%;
+  transform: rotate(115deg);
+}
+.pizza2:nth-child(4) .body {
+  animation: none;
+}
+.pizza2:nth-child(4) .eye {
+  width: 5px;
+  height: 20px;
+  border-radius: 20px;
+}
+.pizza2:nth-child(4) .eye:before {
+  position: absolute;
+  width: 20px;
+  height: 5px;
+  top: 8px;
+  left: -7px;
+  background: #222222;
+  content: " ";
+  border-radius: 20px;
+}
+.pizza2:nth-child(4) .mouth {
+  transform: rotateX(80deg);
+}
+.pizza2:nth-child(4) .arm--left {
+  animation: none;
+}
+.pizza2:nth-child(4) .arm--right {
+  animation: none;
+}
+.pizza2:nth-child(4) .bottle {
+  top: 50%;
+  left: 101%;
+  transform: rotate(-20deg);
+}
+
+@keyframes bounce {
+  1% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes arm-left-animation {
+  1% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes arm-right-animation {
+  1% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes mouth-animation {
+  1% {
+    transform: rotateX(0);
+  }
+  50% {
+    transform: rotateX(50deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes scrollBad {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -320px;
+  }
+}
+@keyframes scrollBad {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -320px;
+  }
+}
+@-webkit-keyframes scrollGood {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -320px, 0);
+            transform: translate3d(0, -320px, 0);
+  }
+}
+@keyframes scrollGood {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -320px, 0);
+            transform: translate3d(0, -320px, 0);
+  }
+}
+.pen {
+  background-color: blue;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.panel {
+  padding: 3rem;
+  height: 100%;
+}
+
+.top {
+  background-color: #3E69C3;
+  background-image:url('../image/MultiplePizza.jpg');
+  background-position: center center;
+  background-size: 500px;
+  -webkit-animation: scrollBad 5s linear infinite;
+  animation: scrollBad 5s linear infinite;
+}
+
+.bottom {
+  background-color: #31CC70;
+  overflow: hidden;
+  position: relative;
+}
+.bottom .scroll {
+  background-image: url(http://scarbroughstudios.com/img/codepen.svg);
+  background-position: center center;
+  background-size: 500px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 400%;
+  width: 100%;
+  z-index: 1;
+  -webkit-animation: scrollGood 5s linear infinite;
+  animation: scrollGood 5s linear infinite;
+}
+
+h1 {
+  color: white;
+  font-weight: 400;
+  font-family: sans-serif;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}

@@ -57,3 +57,10 @@ SELECT COUNT(*) AS 'cantidad' FROM locales as l
 INNER JOIN empleados as e ON e.idLocal= l.idLocal
 INNER JOIN usuarios as u ON u.idUsuario=e.idEmpleado
 WHERE u.idCargo=3 and  l.idLocal=15
+
+
+
+SELECT  u.fechaRegistro, c.nombre  as cargo , e.nombre, e.apellido, e.sueldo, e.idEmpleado,e.idLocal FROM usuarios as u
+INNER JOIN  empleados as e ON u.idUsuario= e.idEmpleado
+INNER JOIN  cargos  as c ON u.idCargo= c.idCargo 
+WHERE u.idEstado=1 and u.idCargo<>4

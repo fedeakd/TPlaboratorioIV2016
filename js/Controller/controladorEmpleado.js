@@ -47,6 +47,7 @@ miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$au
 	$scope.grillaUno.columnDefs=FactoryEmpleado.ConfigurarGrilla();
 	$scope.opciones=["fefe","fefe2","Fefe3"];
 	$scope.prueba=[];
+	$scope.cargado=false;
 	$scope.selected = $scope.opciones[0];
 	$scope.grillaUno.onRegisterApi= function(gridApi) {
 		grid = gridApi.grid;
@@ -74,6 +75,7 @@ miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$au
 		local.push({idLocal:-1 , nombre:"sin asignar"});
 		FactoryEmpleado.TraerAtodosLosEmpleado()
 		.then(function(respuesta) {
+			$scope.cargado=true;
 			var num=0;
 			var grilla=[];
 			respuesta.forEach(function(e) {

@@ -33,7 +33,7 @@ class Oferta{
 		$foto2=$this->imagenes[1];
 		$foto3=$this->imagenes[2];
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into Ofertas (nombre,fecha,precio,foto1,foto2,foto3 )
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into ofertas (nombre,fecha,precio,foto1,foto2,foto3 )
 			values('$this->nombre',
 				'$this->fecha',
 				$this->precio,
@@ -63,7 +63,7 @@ class Oferta{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
 			delete 
-			from  Ofertas
+			from  ofertas
 			WHERE id=:id"); 
 		$consulta->bindValue(':id',$id, PDO::PARAM_INT);    
 		$consulta->execute();
@@ -73,7 +73,7 @@ class Oferta{
 		try{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			$consulta =$objetoAccesoDato->RetornarConsulta("
-				UPDATE Ofertas
+				UPDATE ofertas
 				SET nombre='$obj->nombre',
 				precio='$obj->precio',
 				descripcion='$obj->descripcion'

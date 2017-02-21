@@ -1,4 +1,5 @@
 miApp.controller("controlGrillaUsuarios",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryEmpleado){
+	$scope.cargado=false;
 	console.log("mundo");
 	$scope.grillaUsuarios = {};
 	$scope.getTableHeight = function() {
@@ -12,6 +13,7 @@ miApp.controller("controlGrillaUsuarios",function($scope,$state,FactoryCliente,$
 	$scope.grillaUsuarios.columnDefs=FactoryUsuario.ConfigurarGrilla();
 	FactoryUsuario.TraerTodos().then(function(respuesta) {
 		$scope.grillaUsuarios.data=respuesta;
+		$scope.cargado=true;
 		console.log(respuesta);
 
 	});

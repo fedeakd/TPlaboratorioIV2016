@@ -76,7 +76,7 @@ $app->get('/verificar/{usuario}', function ($request, $response, $args) {
 	if($usuario==FALSE){
 		$response->getBody()->write("datoIncorrecto");
 	}
-	else if($usuario->estado!="inactivo"){
+	else if($usuario->estado=="inactivo"){
 		$response->getBody()->write("inactivo");
 	}
 	//var_dump($usuario);

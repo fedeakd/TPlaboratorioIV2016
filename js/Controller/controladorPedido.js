@@ -148,7 +148,7 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 	
 
 }).controller("controlListaPedidos",function($scope,$state,FactoryUsuario,FactoryPedido){
-
+	$scope.cargado=false;
 	$scope.grillaUno={};
 	var contenedor={};
 	var tablaHead=["cliente","local","precio","fecha"];
@@ -162,15 +162,18 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 	var num= FactoryUsuario.cargo=="cliente"?FactoryUsuario.idUsuario:-1;
 
 	FactoryPedido.TraerPedido(num).then(function(respuesta) {
+		$scope.cargado=true;
 		console.log(respuesta);
 		respuesta.forEach(function(row){
 			contenedor.table.body.push([row.nombreC,row.nombreL,row.precio,row.fecha]);
 		});
 		console.log({content:[contenedor]});
-		pdfMake.createPdf({content:[contenedor]}).open();
+		
 		$scope.grillaUno.data=respuesta;
 
 
 	})
-
-	})
+	$scope.generarPDF=function(){
+		pdfMake.createPdf({content:[contenedor]}).open();
+	}
+})

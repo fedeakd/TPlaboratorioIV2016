@@ -8,15 +8,20 @@
 				</button>
 				<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" >
 					<li role="menuitem" ng-repeat="local in  locales" ><a  ng-click="SeleccionLocal(local)">{{local.nombre}}</a></li>
-				
+
 				</ul>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-5"> 
 				Productos del Local: {{local.nombre}}
-				<div  ui-grid="grillaUno" class="grilla" ></div>
-
+				<div ng-if="!loadGrilla1">
+					<br><br><br><br>
+					<slider-pizza ></slider-pizza>
+				</div>
+				<div  ng-if="loadGrilla1">
+					<div  ui-grid="grillaUno" class="grilla" ></div>
+				</div>
 			</div >
 			<div class="col-md-1">
 				<br><br><br><br><br><br><br>
@@ -25,8 +30,13 @@
 			</div>
 			<div class="col-md-5"> 
 				productos:
-				<div ui-grid="grillaDos" class="grilla" ></div>
-
+				<div ng-if="!loadGrilla2">
+					<br><br><br><br><br>
+					<slider-pizza ></slider-pizza>
+				</div>
+				<div ng-if="loadGrilla2">
+					<div ui-grid="grillaDos" class="grilla" ></div>
+				</div>
 
 			</div>
 

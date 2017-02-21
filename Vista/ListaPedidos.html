@@ -1,4 +1,13 @@
 <div class="container">
-	<div  ui-grid="grillaUno" class="grilla" ></div>
-	<div class="icon icon--pdf"><i title="pdf"></i></div>
+	<div ng-if="!cargado">
+		<slider-pizza ></slider-pizza>
+	</div>
+	<div ng-if="cargado">
+		<div  ui-grid="grillaUno" class="grilla" ></div>
+
+		<div class="oaerror info" style="width: 80%;">
+			<strong>PDF</strong> - Generar  PDF
+			<div ng-click="generarPDF()" class="icon icon--pdf"><i title="pdf"></i></div>
+		</div>
+	</div>
 </div>

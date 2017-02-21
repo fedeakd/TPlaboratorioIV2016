@@ -1,8 +1,7 @@
-<div class="fullscreen_bg" >
 
-	<div class="container">
-		<div id="dust">
-		</div>
+<section class="pen">
+	<div class="panel top">
+
 		<div class="title">
 			<h1>
 				<div>
@@ -12,47 +11,125 @@
 				</div>
 				<div>Mejores pizzas</div>
 			</h1>
-			</div>
-			<div class="row" style="margin-top:20px">
-				<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-					<form role="form"   name="usuario" >
-						<fieldset>
+		</div>
 
-							<h2>Por favor logeate</h2>
-							<hr class="colorgraph">
-							<div class="form-group has-feedback  {{usuario.mail.$invalid && (!show || !usuario.mail.$untouched) ?'has-error':'' }}">
-								<input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-lg" placeholder="mail" required >
-								<span ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
-							</div>
-							<div class="form-group has-feedback {{(usuario.clave.$invalid)  && (!show || !usuario.clave.$untouched) ?'has-error':'' }}">
-								<input type="password" name="clave" id="clave" ng-model="user.clave" class="form-control input-lg" placeholder="Contraseña" required>
-								<span ng-show="(usuario.clave.$invalid )  && (!show || !usuario.clave.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
-							</div>
-							<hr class="colorgraph">
-							<div>
-								<span  class="alerta" ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)">El mail es requerido ---</span>
-								<span  class="alerta" ng-show="(usuario.clave.$invalid)   && (!show || !usuario.clave.$untouched)">La contraseña es requerido ---</span>
+		<div class="row" >
+			<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+				<form role="form"   name="usuario" >
+					<fieldset>
 
+						<h2>Por favor logeate</h2>
+						<hr class="colorgraph">
+						<div class="form-group has-feedback  {{usuario.mail.$invalid && (!show || !usuario.mail.$untouched) ?'has-error':'' }}">
+							<input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-lg" placeholder="mail" required >
+							<span ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						</div>
+						<div class="form-group has-feedback {{(usuario.clave.$invalid)  && (!show || !usuario.clave.$untouched) ?'has-error':'' }}">
+							<input type="password" name="clave" id="clave" ng-model="user.clave" class="form-control input-lg" placeholder="Contraseña" required>
+							<span ng-show="(usuario.clave.$invalid )  && (!show || !usuario.clave.$untouched)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+						</div>
+						<hr class="colorgraph">
+						<div>
+							<span  class="alerta" ng-show="usuario.mail.$invalid  && (!show || !usuario.mail.$untouched)">El mail es requerido ---</span>
+							<span  class="alerta" ng-show="(usuario.clave.$invalid)   && (!show || !usuario.clave.$untouched)">La contraseña es requerido ---</span>
+
+						</div>
+						<div class="row">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input type="button" ng-click="show= usuario.$valid; show ? Logearse():false"  class="btn btn-lg btn-success btn-block" value="Aceptar">
 							</div>
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<input type="button" ng-click="show= usuario.$valid; show ? Logearse():false"  class="btn btn-lg btn-success btn-block" value="Aceptar">
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<a ng-click="IrRegistrar()" class="btn btn-lg btn-primary btn-block" style="color:white">Registrate</a>
-								</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<a ng-click="IrRegistrar()" class="btn btn-lg btn-primary btn-block">Registrate</a>
 							</div>
-						</fieldset>
-					</form>
-				</div>
+						</div>
+					</fieldset>
+				</form>
 			</div>
-			<br><br>
-			<div class="row">
-				<h2>Entrar como:</h2>
-				<button type="button" ng-click="DarLogin(4)" class="btn3d btn btn-default btn-lg">Administrador</button>
-				<button type="button" ng-click="DarLogin(3)" class="btn3d btn btn-default btn-lg"> Encargado</button>
-				<button type="button" ng-click="DarLogin(2)" class="btn3d btn btn-default btn-lg"> Empleado</button>
-				<button type="button" ng-click="DarLogin(1)" class="btn3d btn btn-default btn-lg"> Cliente</button>
-			</div></div>
 
 		</div>
+		<div class="row">
+			<h2>Entrar como:</h2>
+			<button type="button" ng-click="DarLogin(4)" class="btn3d btn btn-default btn-lg">Administrador</button>
+			<button type="button" ng-click="DarLogin(3)" class="btn3d btn btn-default btn-lg"> Encargado</button>
+			<button type="button" ng-click="DarLogin(2)" class="btn3d btn btn-default btn-lg"> Empleado</button>
+			<button type="button" ng-click="DarLogin(1)" class="btn3d btn btn-default btn-lg"> Cliente</button>
+		</div>
+		<div class="container2 row">
+			<div class="pizza2 row">
+				<div class="body">
+					<div class="slice"></div>
+					<div class="cheese">
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+					</div>
+					<div class="eye eye--left"></div>
+					<div class="eye eye--right"></div>
+					<div class="mouth"></div>
+				</div>
+				<div class="arm arm--left"></div>
+				<div class="arm arm--right"></div>
+				<div class="foot foot--left"></div>
+				<div class="foot foot--right"></div>
+				<div class="bottle"></div>
+			</div>
+			<div class="pizza2">
+				<div class="body">
+					<div class="slice"></div>
+					<div class="cheese">
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+					</div>
+					<div class="eye eye--left"></div>
+					<div class="eye eye--right"></div>
+					<div class="mouth"></div>
+				</div>
+				<div class="arm arm--left"></div>
+				<div class="arm arm--right"></div>
+				<div class="foot foot--left"></div>
+				<div class="foot foot--right"></div>
+				<div class="bottle"></div>
+			</div>
+			<div class="pizza2">
+				<div class="body">
+					<div class="slice"></div>
+					<div class="cheese">
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+					</div>
+					<div class="eye eye--left"></div>
+					<div class="eye eye--right"></div>
+					<div class="mouth"></div>
+				</div>
+				<div class="arm arm--left"></div>
+				<div class="arm arm--right"></div>
+				<div class="foot foot--left"></div>
+				<div class="foot foot--right"></div>
+				<div class="bottle"></div>
+			</div>
+			<div class="pizza2">
+				<div class="body">
+					<div class="slice"></div>
+					<div class="cheese">
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+						<div class="pepperoni"></div>
+					</div>
+					<div class="eye eye--left"></div>
+					<div class="eye eye--right"></div>
+					<div class="mouth"></div>
+				</div>
+				<div class="arm arm--left"></div>
+				<div class="arm arm--right"></div>
+				<div class="foot foot--left"></div>
+				<div class="foot foot--right"></div>
+				<div class="bottle"></div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+</section>

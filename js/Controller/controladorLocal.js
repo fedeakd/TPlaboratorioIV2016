@@ -55,7 +55,8 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 
 
 .controller("controlLocal-Productos",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FileUploader,FactoryRuta,FactoryAlerta){
-
+	$scope.loadGrilla1=false;
+	$scope.loadGrilla2=false;
 	var localProduViejo=[];
 	var todosLosProductos=[];
 	$scope.grillaDos={};
@@ -68,6 +69,7 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 	$scope.grillaUno.columnDefs=FactoryProducto.ConfigurarGrilla(1);
 
 	FactoryProducto.TraerTodos().then(function(respuesta) {
+		$scope.loadGrilla2=true;
 		$scope.grillaDos.data =respuesta;
 		todosLosProductos=FactoryProducto.CargarArray(respuesta);
 
@@ -82,8 +84,9 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 
 	$scope.SeleccionLocal=function(local){
 		$scope.local=local;
+		$scope.loadGrilla1=false;
 		FactoryLocal.TraerUnLocalProdu(local).then(function(respuesta) {
-
+			$scope.loadGrilla1=true;
 			$scope.grillaUno.data=respuesta;
 			localProduViejo= FactoryProducto.CargarArray(respuesta);			
 			$scope.grillaDos.data =FactoryProducto.CargarArray(todosLosProductos);
@@ -134,7 +137,8 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 	}
 }).
 controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,FactoryProducto ,FactoryRuta,FactoryOferta,FactoryAlerta){
-
+	$scope.loadGrilla1=false;
+	$scope.loadGrilla2=false;
 	var localOfertaVieja=[];
 	var todasLasOfertas=[];
 	$scope.grillaDos={};
@@ -160,7 +164,7 @@ controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,Fact
 	localOfertaVieja=FactoryProducto.CargarArray($scope.grillaUno.data);
 
 	FactoryOferta.TraerTodos().then(function(respuesta) {
-		console.log(respuesta);
+		$scope.loadGrilla2=true;
 		$scope.grillaDos.data =respuesta;
 		todasLasOfertas=FactoryProducto.CargarArray(respuesta);
 
@@ -170,9 +174,10 @@ controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,Fact
 
 	});
 	$scope.SeleccionLocal=function(local){
+		$scope.loadGrilla1=false;
 		$scope.local=local;
 		FactoryLocal.TraerUnLocalOferta(local).then(function(respuesta) {
-
+			$scope.loadGrilla1=true;
 			$scope.grillaUno.data=respuesta;
 			localOfertaVieja= FactoryProducto.CargarArray(respuesta);			
 			$scope.grillaDos.data =FactoryProducto.CargarArray(todasLasOfertas);

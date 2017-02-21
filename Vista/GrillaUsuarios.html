@@ -1,7 +1,11 @@
 
 <div class="container">
-	<h1>racing el primer grande</h1>
-<!-- id="listaPersonas" -->									
-<div  ui-grid="grillaUsuarios" class="grilla"  ></div>
+	<h1>Lista de usuarios</h1>
+	<br><br>
+	<div ng-if="!cargado">
+		<slider-pizza ></slider-pizza>
+	</div>
+	<!-- id="listaPersonas" -->									
+	<div ng-if="cargado" ui-grid="grillaUsuarios" class="grilla"  ></div>
 
 </div>

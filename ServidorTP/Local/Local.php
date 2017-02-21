@@ -56,7 +56,7 @@ class Local{
 		return $array;
 	}
 
-	public function GuardarLocalProdu($idLocal,$idProducto)
+	public static function GuardarLocalProdu($idLocal,$idProducto)
 	{
 		
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -69,7 +69,7 @@ class Local{
 
 
 	}
-	public function BorrarLocalProdu($idLocal,$idProducto)
+	public static function BorrarLocalProdu($idLocal,$idProducto)
 	{
 		
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -78,7 +78,7 @@ class Local{
 
 
 	}
-	public function TraerUnLocalProdu($idLocal){
+	public static function TraerUnLocalProdu($idLocal){
 		$array=[];
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT p.nombre, p.precio, p.idProducto,p.foto1,p.foto2,p.foto3 FROM localesprodu AS lp
@@ -102,7 +102,7 @@ class Local{
 	}
 
 
-	public function GuardarLocalOferta($idLocal,$idOferta)
+	public static function GuardarLocalOferta($idLocal,$idOferta)
 	{
 
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -115,7 +115,7 @@ class Local{
 
 
 	}
-	public function BorrarLocalOferta($idLocal,$idOferta)
+	public static function BorrarLocalOferta($idLocal,$idOferta)
 	{
 		
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
@@ -124,10 +124,10 @@ class Local{
 
 
 	}
-	public function TraerUnLocalOferta($idLocal){
+	public static function TraerUnLocalOferta($idLocal){
 		$array=[];
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT o.nombre, o.precio, o.idOferta,o.fecha,o.foto1,o.foto2,o.foto3 FROM localesOfertas AS lO
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT o.nombre, o.precio, o.idOferta,o.fecha,o.foto1,o.foto2,o.foto3 FROM localesofertas AS lO
 			INNER JOIN ofertas AS o ON o.idOferta=lO.idOferta
 			INNER JOIN locales AS l ON l.idLocal=lO.idLocal
 			WHERE lO.idLocal=$idLocal");
