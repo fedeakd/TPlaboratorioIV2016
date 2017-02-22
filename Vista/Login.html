@@ -18,7 +18,7 @@
 				<form role="form"   name="usuario" >
 					<fieldset>
 
-						<h2>Por favor logeate</h2>
+						<h2 style="color:white">Por favor logeate</h2>
 						<hr class="colorgraph">
 						<div class="form-group has-feedback  {{usuario.mail.$invalid && (!show || !usuario.mail.$untouched) ?'has-error':'' }}">
 							<input type="email" name="mail" id="mail" ng-model="user.mail"  value="soii_fede@hotmail.com" class="form-control input-lg" placeholder="mail" required >
@@ -48,7 +48,7 @@
 
 		</div>
 		<div class="row">
-			<h2>Entrar como:</h2>
+			<h2 style="color:white">Entrar como:</h2>
 			<button type="button" ng-click="DarLogin(4)" class="btn3d btn btn-default btn-lg">Administrador</button>
 			<button type="button" ng-click="DarLogin(3)" class="btn3d btn btn-default btn-lg"> Encargado</button>
 			<button type="button" ng-click="DarLogin(2)" class="btn3d btn btn-default btn-lg"> Empleado</button>

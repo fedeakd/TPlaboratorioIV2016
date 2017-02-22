@@ -31,22 +31,20 @@ $app->get('/TraerDatos/{dato}', function (Request $request, Response $response,$
 	switch ($datos) {
 		case 'locales venta productos':
 		$respuesta=Grafico::LocalesProductos();
-			# code...
 		break;
 		case 'locales venta ofertas':
 		$respuesta=Grafico::LocalesOfertas();
-			# code...
 		break;
 		case 'Productos con mas ventas':
 		$respuesta=Grafico::ProductosVentas();
-			# code...
 		break;
-		case 'Ofetas mas vendida':
+		case 'Ofertas mas vendida':
 		$respuesta=Grafico::ProductosOfertas();
-			# code...
+		break;
+		case 'Cantidad de empleados por local':
+		$respuesta=Grafico::CantidadEmpleadosPorLocal();
 		break;
 		default:
-			# code...
 		break;
 	}
 

@@ -1,33 +1,5 @@
 
 <div >
-	<div class="col-sm-1">
-
-		<nav class="navbar navbar-fixed-left navbar-minimal animate"  role="navigation">
-			<div class="navbar-toggler animate">
-				<span class="menu-icon"></span>
-			</div>
-			<ul class="navbar-menu animate">
-				<li>
-					<a href="#about-us" class="animate">
-						<span class="desc animate"> Who We Are </span>
-						<span class="glyphicon glyphicon-user"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#blog" class="animate">
-						<span class="desc animate"> What We Say </span>
-						<span class="glyphicon glyphicon-info-sign"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#contact-us" class="animate">
-						<span class="desc animate"> How To Reach Us </span>
-						<span class="glyphicon glyphicon-comment"></span>
-					</a>
-				</li>
-			</ul>
-		</nav>
-	</div>	
 	<div  class="">
 		<div class="container animated slideInDown ">
 			<div class="row">
@@ -56,10 +28,10 @@
 								<li ng-if="(cargo=='empleado')"><a href="#/menu/altaOferta">Alta oferta</a></li>
 								<li ng-if="(cargo=='administrador'|| cargo=='empleado' || cargo=='encargado')"><a href="#/menu/grillaDeUsuarios">Grillas usuarios</a></li>
 								<li ng-if="(cargo=='encargado')"><a href="#/menu/local-Productos">Local  productos</a></li>
-								<li ng-if="true"><a href="#/menu/GraficosEstadistica">Grafico y estadistica</a></li>
+								<li ng-if="(cargo=='administrador')"><a href="#/menu/GraficosEstadistica">Graficos</a></li>
 								<li ng-if="(cargo=='encargado')"><a href="#/menu/local-Ofertas">local ofertas</a></li>
 								<li ng-if="true"><a href="#/menu/listaPedidos">Lista de pedido</a></li>
-								<li ng-if="true"><a href="#/menu/grillaEmpleados">Grilla empleados</a></li>
+								<li ng-if="(cargo=='administrador')"><a href="#/menu/grillaEmpleados">Grilla empleados</a></li>
 								<li ng-if="true"><a ng-click="deslogeo()">Salir</a></li>
 								<li class="s-icon">
 									<a href="#" id="addClass"><img src="image/pizza (2).png" alt=""></a>

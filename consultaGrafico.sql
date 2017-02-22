@@ -64,3 +64,10 @@ SELECT  u.fechaRegistro, c.nombre  as cargo , e.nombre, e.apellido, e.sueldo, e.
 INNER JOIN  empleados as e ON u.idUsuario= e.idEmpleado
 INNER JOIN  cargos  as c ON u.idCargo= c.idCargo 
 WHERE u.idEstado=1 and u.idCargo<>4
+
+
+//Cantidad  de empleados por local 
+
+SELECT l.nombre,  COUNT(e.nombre) AS 'Cantidad' FROM  locales  as l
+INNER JOIN  empleados as e ON e.idLocal= l.idLocal
+GROUP BY e.idLocal

@@ -2,7 +2,7 @@ miApp.controller("controladorGraficoEstadistica",function($scope,$state,$auth,Fa
 
 
 
-	$scope.opciones=["locales venta productos","locales venta ofertas","Productos con mas ventas" , "Ofetas mas vendida"];
+	$scope.opciones=["locales venta productos","locales venta ofertas","Productos con mas ventas" , "Ofertas mas vendida",'Cantidad de empleados por local'];
 	$scope.Seleccion=function(dato){
 		console.log(dato);
 		FactoryGraficoEstadistica.TraerDatos(dato).then(function(respuesta) {

@@ -9,6 +9,7 @@ angular
 	this.TraerAtodosLosEmpleado=TraerAtodosLosEmpleado;
 	this.CambiarEstado=CambiarEstado;
 	this.CambiarEmpleadoLocal=CambiarEmpleadoLocal;
+	this.BorrarEmpleado=BorrarEmpleado;
 	
 	function AltaCliente(persona){
 		return $http.post(urlPersona+"altaCliente/"+JSON.stringify(persona))
@@ -65,5 +66,12 @@ angular
 
 		});
 	} 
+	function BorrarEmpleado(empleado){
+		return $http.delete(urlPersona+JSON.stringify(empleado))
+		.then(function(respuesta) {     	
+			
+			return respuesta.data;
 
+		});
+	} 
 })

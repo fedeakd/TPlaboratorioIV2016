@@ -27,7 +27,7 @@
 	<script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 	<script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
 	<script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
-
+	<script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
 
 	<!-- Auto completar google -->
 	<script src="bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
@@ -49,8 +49,10 @@
 	<link rel="stylesheet" href="css/animacion.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/principal.css">
+	<link rel="stylesheet" href="css/estiloGrilla.css">
 	<link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/src/autocomplete.css">
-
+	<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.min.css">
+	<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
 	<!--PARTE  JS -->
 
 	<script>
@@ -100,7 +102,9 @@
 	<script SRC="js/Factory/FactoryGraficoEstadistica.js" TYPE="text/javascript"></script>
 	<!--Directiva --> 
 	<script SRC="js/Directiva/SliderPizza.js" TYPE="text/javascript"></script> 
-	<title></title>
+	<title>Pizzeria city</title>
+
+	<link rel="shortcut icon" href="image/pizza.png">
 </head>
 <body ng-app="AngularABM" ng-class="{'home-page': $state.includes('home'), 'login-page' : $state.includes('login')}">
 	<div ui-view></div>

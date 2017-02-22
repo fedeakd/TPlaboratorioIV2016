@@ -6,6 +6,8 @@
 		<slider-pizza ></slider-pizza>
 	</div>
 	<!-- id="listaPersonas" -->									
-	<div ng-if="cargado" ui-grid="grillaUsuarios" class="grilla"  ></div>
-
+	
+	<div class=" animated pulse" ng-if="cargado">
+	<div  ui-grid="grillaUsuarios" class="grilla"  ></div>
+</div>
 </div>

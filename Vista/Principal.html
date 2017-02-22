@@ -1,4 +1,217 @@
 
 
 
-<h1>hhola mundo </h1>
+
+
+
+<div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Click Me</button></div>
+
+
+
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" >
+
+ <div class="modal-dialog" >
+  <div class="modal-content" >
+
+   <ul class="nav nav-tabs">
+      <li class="active"><a href="/home" data-toggle="tab">Profile</a></li>
+      <li><a href="/profile" data-toggle="tab">Password</a></li>
+</ul>
+      <form id="FormIngreso" name="FormIngreso" enctype="multipart/form-data" style="background-image:url(img/marco.png);background-position: center;background-size: 100% 100%;background-repeat: no-repeat;" novalidate>
+
+                        <center><h2 style="color:black">Encuesta de Satisfacción</h2>
+                        <br>
+                    <div id="carousel-example-generic" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators hidden-xs">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" ng-show="mostrarProd" >
+                            <div class="item active">
+                                <img class="img-responsive img-full" ng-src="fotosProd/{{producto.foto1}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" ng-src="fotosProd/{{producto.foto2}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" ng-src="fotosProd/{{producto.foto3}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                        </div>
+                        <div class="carousel-inner" ng-show="mostrarOfer" >
+                            <div class="item active">
+                                <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto1}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto2}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto3}}" alt="" style="width: 250px; height: 200px;">
+                            </div>
+                        </div>
+
+                    </div>
+                    <h4 style="color:black">{{producto.descripcion}}</h4>
+                    </center>
+                    <br/><br/>
+                  
+                        <span>1. ¿Nos recomendaría a sus amigos y familiares?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.uno" value="mucho">
+                            Mucho
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.uno" value="poco">
+                            Poco
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.uno" value="nada">
+                            Nada
+                          </label><br/>
+                        <br>
+                  
+                        <span>2. ¿Qué tan satisfecho está con nuestra empresa?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.dos" value="mucho">
+                            Mucho
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.dos" value="poco">
+                            Poco
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.dos" value="nada">
+                            Nada
+                          </label><br/>
+
+                        <br>
+                  
+                        <span>3. ¿Qué palabra utilizaría para describir nuestros productos?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.tres" value="unico">
+                            Unico
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.tres" value="caro">
+                            Caro
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.tres" value="no seguro">
+                            No seguro
+                          </label><br/>
+
+                        <br>
+
+                        <span>4. ¿Qué tan bien nuestros productos satisface sus necesidades?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cuatro" value="mucho">
+                            Mucho
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cuatro" value="poco">
+                            Poco
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cuatro" value="nada">
+                            Nada
+                          </label><br/>
+
+                        <br>
+
+                        <span>5. ¿Cómo calificaría la calidad del producto?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cinco" value="alta">
+                            Alta
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cinco" value="baja">
+                            Baja
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.cinco" value="mala">
+                            Mala
+                          </label><br/>
+
+                        <br>
+
+                        <span>6. ¿Cómo calificaría la relación calidad-precio del producto?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.seis" value="excelente">
+                            Excelente
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.seis" value="promedio">
+                            Promedio
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.seis" value="no pobre">
+                            Pobre
+                          </label><br/>
+
+                        <br>
+
+                        <span>7. ¿Qué tan responsables fuimos en la atención?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.siete" value="mucho">
+                            Mucho
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.siete" value="poco">
+                            Poco
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.siete" value="nada">
+                            Nada
+                          </label><br/>
+
+                        <br>
+
+                        <span>8. ¿Cuánto tiempo ha sido cliente de nuestra empresa?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.ocho" value="primera_compra">
+                            Esta es mi primera compra
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.ocho" value="seis_meses">
+                            Menos de 6 meses
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.ocho" value="mas_tiempo">
+                            Mas de 1 año
+                          </label><br/>
+
+                        <br>
+
+                        <span>9. ¿Qué tan gustoso está de comprar nuestros productos denuevo?</span><br>
+                          <label>
+                            <input type="radio" ng-model="encuesta.nueve" value="mucho">
+                            Mucho
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.nueve" value="poco">
+                            Poco
+                          </label><br/>
+                          <label>
+                            <input type="radio" ng-model="encuesta.nueve" value="nada">
+                            Nada
+                          </label><br/>
+
+                        <br>
+
+                        <span>10. ¿Tiene alguna pregunta, comentario o sugerencia que hacernos? (hasta 400 caracteres)</span><br>
+                            <textarea style="width: 100%; height: 35%; color:darkgreen;" ng-model="encuesta.diez" maxlength=400></textarea>
+
+                        <br><br><br>
+
+                        <button class="btn btn-info"  ng-disabled="FormIngreso.$invalid" ng-click="Guardar()"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</button><br>
+                        <span style="color:red" ng-show="FormIngreso.$invalid">FALTAN DATOS!!</span>
+
+                        </center>
+                        
+                  </form>
+</div>
+
+</div></div>

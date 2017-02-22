@@ -52,19 +52,19 @@ miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$au
 	$scope.grillaUno.onRegisterApi= function(gridApi) {
 		grid = gridApi.grid;
 	}
-	$scope.seleccion= function(idEmpleado,idLocal,cargo){
+	$scope.seleccion= function(idEmpleado,idLocal,cargo,e){
 		paquete={
 			idLocal:idLocal,
 			idEmpleado:idEmpleado,
 			cargo:cargo
 		};
-		console.log(paquete);
 		FactoryEmpleado.CambiarEmpleadoLocal(paquete)
 		.then(function(respuesta) {
 			if(respuesta=="ya asignado"){
 				alertify.error("Lo siento ya tenemos asignado un ENCARGADO en ese local ");
 			}
 			else{
+				e.idLocal=idLocal;
 				alertify.success("Se han hecho  los cambios");
 			}
 		})
@@ -100,6 +100,17 @@ miApp.controller("controlAltaEmpleado",function($scope,$state,FactoryCliente,$au
 
 	});
 
+	$scope.Borrar=function(empleado,index){
+		console.log(empleado);
 
+		FactoryEmpleado.BorrarEmpleado(empleado.idEmpleado)
+		.then(function(respuesta) {
+			console.log(respuesta);
+			$scope.grilla.splice(index, 1);
+		})
+	}
 
 })
+
+
+

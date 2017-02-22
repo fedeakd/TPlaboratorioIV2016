@@ -71,6 +71,18 @@ class Grafico{
 		return $consulta->fetchAll(PDO::FETCH_CLASS, "Grafico"); 
 
 	}
+
+	public static function  CantidadEmpleadosPorLocal(){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT l.nombre,  COUNT(e.nombre) AS 'cuenta' FROM  locales  as l
+			INNER JOIN  empleados as e ON e.idLocal= l.idLocal
+			GROUP BY e.idLocal
+			");
+		$consulta->execute();     
+		return $consulta->fetchAll(PDO::FETCH_CLASS, "Grafico"); 
+
+	}
 }
 
 ?>

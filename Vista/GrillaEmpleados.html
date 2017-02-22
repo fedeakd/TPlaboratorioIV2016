@@ -2,31 +2,42 @@
     <div ng-if="!cargado">
         <slider-pizza ></slider-pizza>
     </div>
-    <div ng-if="cargado">
-     <table style="text-align: initial; background-color: #0d78e9;" class="table table-striped">
+    <div ng-if="cargado" class="animated tada">
+       <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+            <input type="text" class="form-control" placeholder="Filtro" ng-model="searchFish">
+
+        </div>      
+    </div>
+
+    <table style="text-align: initial; background-color: #0d78e9;" class="table table-striped">
        <thead>
         <tr class="info">
             <th>Nombre</th>
-            <th>apellido</th>
-            <th>cargo</th>
-            <th>fechaRegistro</th>
-            <th>sueldo</th>
-            <th>local</th>
+            <th>Apellido</th>
+            <th>Cargo</th>
+            <th>FechaRegistro</th>
+            <th>Sueldo</th>
+            <th>Local</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody style='font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-weight: 400;'>
-    <tr style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}}; color:white" ng-repeat="e  in grilla">
+    <tr style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}}; color:white" ng-repeat="e  in grilla  | filter:searchFish">
         <!--first example-->
-        <td>{{e.nombre}}</td>
+        <td>{{e.nombre| FirstToUpp }}</td>
         <td>{{e.apellido}}</td>
-        <td>{{e.cargo}}</td>
+        <td>{{e.cargo | toUpper}}</td>
         <td>{{e.fechaRegistro}}</td>
-        <td>{{e.sueldo}}</td>
+        <td>${{e.sueldo}}</td>
         <td  >	
-            <select  style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}};" ng-change="seleccion(e.idEmpleado,e.select.idLocal,e.cargo)"  ng-options="option.nombre for option in e.combo"  ng-model="e.select" >
+            <select  style=" background-color:{{$index%2==0?'#0d78e9':'#63cbeb'}};" ng-change="seleccion(e.idEmpleado,e.select.idLocal,e.cargo,e)"   ng-options="option.nombre for option in e.combo"  ng-model="e.select" >
             </select>
         </td>
+        <td> <button ng-disabled="e.idLocal!=-1 && e.idLocal!=null" type="button" class="btn btn-info" ng-click="Borrar(e,$index)">Borrar</button></td>
     </tr>
 </tbody>
 </table>

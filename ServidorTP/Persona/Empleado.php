@@ -90,5 +90,13 @@ class Empleado extends Usuario{
 		
 		$consulta->execute();
 	}
+
+
+	public static function Borrar($id){
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("DELETE FROM empleados where idEmpleado=$id");
+		$consulta->execute();
+	}
+
 }
 ?>

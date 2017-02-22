@@ -39,7 +39,7 @@ miApp.controller("controlLogin",function($scope,$state,FactoryCliente,$auth,Fact
 		FactoryUsuario.VerificarLogin()
 		.then(function(respuesta) { 
 			if(respuesta=="datoIncorrecto"){
-				FactoryAlerta.Mostrar("Error","Error, contraseña o clave incorrecta","error");
+				FactoryAlerta.Mostrar("Error","Error, usuario o contraseña incorrecta","error");
 				return;
 			}
 			else if(respuesta=="inactivo"){
@@ -49,8 +49,13 @@ miApp.controller("controlLogin",function($scope,$state,FactoryCliente,$auth,Fact
 			}
 			else{	
 				$auth.login(respuesta).then(function(response) {
-					console.log(response);
-					$state.go("abstractoMenu.principal");
+					console.log(respuesta);
+					if(respuesta.cargo=="cliente"){
+						$state.go("abstractoMenu.altaPedido");
+					}
+					else{
+						$state.go("abstractoMenu.listaPedidos");
+					}
 					
 
 				}).catch(function(r){

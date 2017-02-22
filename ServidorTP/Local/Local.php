@@ -81,7 +81,7 @@ class Local{
 	public static function TraerUnLocalProdu($idLocal){
 		$array=[];
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT p.nombre, p.precio, p.idProducto,p.foto1,p.foto2,p.foto3 FROM localesprodu AS lp
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT p.nombre, p.precio, p.idProducto,p.foto1,p.foto2,p.foto3,p.descripcion FROM localesprodu AS lp
 			INNER JOIN productos AS p ON p.idProducto=lp.idProducto
 			INNER JOIN locales AS l ON l.idLocal=lp.idLocal
 			WHERE lp.idLocal=$idLocal");
@@ -94,6 +94,7 @@ class Local{
 			$fila['foto1']=$row['foto1'];
 			$fila['foto2']=$row['foto2'];
 			$fila['foto3']=$row['foto3'];
+			$fila['descripcion']=$row['descripcion'];
 			array_push($array,$fila);
 
 		}

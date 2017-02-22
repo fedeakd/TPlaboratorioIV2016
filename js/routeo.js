@@ -7,7 +7,8 @@ var miApp= angular.module("AngularABM",['ui.router','ui.bootstrap','angularFileU
 	'ui.grid.edit',
 	'ngMap',
 	'google.places',
-	'chart.js'
+	'chart.js',
+	'ngDialog'
 	]);
 miApp.config(function($stateProvider,$urlRouterProvider,$authProvider){
 	$authProvider.loginUrl='Laboratorio4/TPlaboratorioIV2016/PHP/auth.php';
@@ -196,4 +197,24 @@ miApp.controller('GlobalCtrl', function($scope) {
     	$scope.bodyClass = toState.name + '-page';
     });
 });
+
+
+//Filtro
+//PrimeraL letra en mayuscula
+miApp.filter("FirstToUpp", function(){
+    return function(text) {
+        if(text != null){
+            return text.charAt(0).toUpperCase() + text.slice(1);
+        }
+    }
+})
+
+//filtro para poner todo el texto en mayúsculas
+miApp.filter("toUpper", function(){
+    return function(text){
+        if(text != null){
+            return text.toUpperCase();
+        }
+    }
+})
 

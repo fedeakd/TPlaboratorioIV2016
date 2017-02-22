@@ -1,4 +1,8 @@
-miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryProducto,FactoryRuta,FactoryLocal,FactoryPedido,NgMap,FactoryAlerta){
+miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth,FactoryUsuario,FactoryProducto,FactoryRuta,FactoryLocal,FactoryPedido,NgMap,FactoryAlerta,ngDialog){
+
+	
+
+	$scope.prueba="hola mundo ";
 	$scope.ruta=FactoryRuta.imagen;
 	$scope.miArray=[];
 	$scope.chango=[];
@@ -11,6 +15,7 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 	$scope.pedido={};
 	$scope.locales=[];
 	$scope.ofertas=[];
+
 	FactoryLocal.TraerTodos().then(function(respuesta) {
 		$scope.locales=respuesta;
 
@@ -32,7 +37,6 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 	$scope.IrAPedido=function(local){
 		$scope.pedido.local=local;
 		FactoryLocal.TraerUnLocalProdu(local).then(function(respuesta) {
-
 			$scope.productos=respuesta;
 
 		});
@@ -143,6 +147,22 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 		$scope.ban=true;
 		$scope.num--;
 
+	}
+
+	$scope.MostrarDetalles=function(producto,tipo){
+		if(tipo=="producto"){
+			$scope.detalles=producto.descripcion;
+			$scope.tipo=tipo;
+		}
+		else{
+			$scope.detalles="Sin  detalles";
+			$scope.tipo=tipo;
+		}
+		console.log(producto);
+		
+		ngDialog.open({ template: 'Vista/PedidoDetalles.html', className: 'ngdialog-theme-default' ,
+			scope: $scope
+		});
 	}
 	//Parte 2
 	

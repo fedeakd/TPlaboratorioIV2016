@@ -17,6 +17,7 @@ angular
 	empleado.Alta=Alta;
 	empleado.ConfigurarGrilla=ConfigurarGrilla;
 	empleado.CambiarEmpleadoLocal=CambiarEmpleadoLocal;
+	empleado.BorrarEmpleado=BorrarEmpleado;
 	return empleado;
 
 	function CargarDatos(per,ban){
@@ -41,6 +42,9 @@ angular
 
 	function CambiarEmpleadoLocal(paquete){
 		return ServicioPersona.CambiarEmpleadoLocal(paquete);
+	}
+	function BorrarEmpleado(emple){
+		return ServicioPersona.BorrarEmpleado(emple);
 	}
 
 	function ConfigurarGrilla(){

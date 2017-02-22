@@ -119,7 +119,7 @@ miApp.controller("controlAltaLocal",function($scope,$state,$auth,FactoryLocal ,F
 			});
 		}
 		FactoryAlerta.Mostrar("Felicitaciones","Se ha logrado los cambio","success");
-		$state.go("abstractoMenu.principal");
+		$state.go("abstractoMenu.listaPedidos");
 
 	}
 	$scope.Seleccionar=function(estado,index,tipo){
@@ -218,7 +218,7 @@ controller("controlLocal-Ofertas",function($scope,$state,$auth,FactoryLocal,Fact
 			});
 		}
 		FactoryAlerta.Mostrar("Felicitaciones","Se ha logrado los cambio","success");
-		$state.go("abstractoMenu.principal");
+		$state.go("abstractoMenu.listaPedidos");
 	}
 
 })

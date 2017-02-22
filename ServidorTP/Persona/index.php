@@ -103,13 +103,8 @@ $app->get('/verificar/{usuario}', function ($request, $response, $args) {
 });
 $app->delete('/{id}', function (Request $request, Response $response) {
 	$id=$request->getAttribute('id');
-	/*$ruta="../fotos/".$respuesta->datos->persona->imagen;ruta anterior
-	for ($i=0; $i < 3; $i++) { Borro  la fotos viejas 
-		if(file_exists ($ruta.($i+1).".png")){
-			unlink($ruta.($i+1).".png");
-		}
-	}*/
-	Persona::BorrarUsuario($id);
+	Empleado::Borrar($id);
+	Usuario::Borrar($id);
 	$response->getBody()->write("ok");
 
 	return $response;
