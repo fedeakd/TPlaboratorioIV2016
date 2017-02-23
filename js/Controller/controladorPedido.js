@@ -35,6 +35,7 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 		console.log($scope.pedido);
 	}
 	$scope.IrAPedido=function(local){
+		console.log(local);
 		$scope.pedido.local=local;
 		FactoryLocal.TraerUnLocalProdu(local).then(function(respuesta) {
 			$scope.productos=respuesta;
@@ -148,7 +149,19 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 		$scope.num--;
 
 	}
-
+	$scope.MostrarEncuesta=function(){
+		$scope.encuesta={};
+		$scope.local=$scope.pedido.local;
+		console.log($scope.local);
+		$scope.tab=1;
+		ngDialog.open({ template: 'Vista/encuesta.html', className: 'ngdialog-theme-default' ,
+			scope: $scope
+		});
+		$scope.Guardar=function(){
+			console.log($scope.encuesta);
+			FactoryAlerta.Mostrar("Gracias!!","Gracias por participar de nuestra encuesta","success");
+		}
+	}
 	$scope.MostrarDetalles=function(producto,tipo){
 		if(tipo=="producto"){
 			$scope.detalles=producto.descripcion;
@@ -167,7 +180,7 @@ miApp.controller("controlAltaPedido",function($scope,$state,FactoryCliente,$auth
 	//Parte 2
 	
 
-}).controller("controlListaPedidos",function($scope,$state,FactoryUsuario,FactoryPedido){
+}).controller("controlListaPedidos",function($scope,$state,FactoryUsuario,FactoryPedido,ngDialog){
 	$scope.cargado=false;
 	$scope.grillaUno={};
 	var contenedor={};

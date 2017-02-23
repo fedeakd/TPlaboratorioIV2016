@@ -1,0 +1,276 @@
+
+
+<div  >
+
+ <ul class="nav nav-tabs">
+  <li class="{{tab==1?'active':''}}"><a ng-click="tab=1">Parte 1</a></li>
+  <li  class="{{tab==2?'active':''}}"><a  ng-click="tab=2" >Parte 2</a></li>
+  <li  class="{{tab==3?'active':''}}"><a  ng-click="tab=3" >Parte 3</a></li>
+</ul>
+<form id="FormIngreso" name="FormIngreso" enctype="multipart/form-data"novalidate>
+
+  <center><h2 style="color:black">Encuesta de Satisfacción</h2>
+    <br>
+    <div id="carousel-example-generic" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators hidden-xs">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" ng-show="true" >
+        <div class="item active">
+          <img class="img-responsive img-full" ng-src="{{ruta+local.foto1}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+        <div class="item">
+          <img class="img-responsive img-full" ng-src="{{ruta+local.foto2}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+        <div class="item">
+          <img class="img-responsive img-full" ng-src="{{ruta+local.foto3}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+      </div>
+      <div class="carousel-inner" ng-show="mostrarOfer" >
+        <div class="item active">
+          <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto1}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+        <div class="item">
+          <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto2}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+        <div class="item">
+          <img class="img-responsive img-full" ng-src="fotosOfer/{{oferta.foto3}}" alt="" style="width: 250px; height: 200px;">
+        </div>
+      </div>
+
+    </div>
+    <h4 style="color:black">{{producto.descripcion}}</h4>
+  </center>
+  <br/><br/>
+  <div ng-if="tab==1">
+    <span>1. ¿Que tal le parecio nuestros productos ?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.uno" value="bueno">
+      bueno
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.uno" value="masomenos">
+      maso menos
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.uno" value="malo">
+      malo
+    </label><br/>
+    <br>
+
+    <span>2. ¿Qué tan satisfecho está con nuestra empresa?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.dos" value="mucho">
+      Mucho
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.dos" value="poco">
+      Poco
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.dos" value="nada">
+      Nada
+    </label><br/>
+
+    <br>
+
+    <span>3. ¿Qué palabra utilizaría para describir nuestros ofertas o productos?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.tres" value="unico">
+      Unico
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.tres" value="caro">
+      Caro
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.tres" value="no seguro">
+      No seguro
+    </label><br/>
+
+    <br>
+
+    <span>4. ¿Qué tan bien nuestros productos satisface sus necesidades?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.cuatro" value="mucho">
+      Mucho
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.cuatro" value="poco">
+      Poco
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.cuatro" value="nada">
+      Nada
+    </label><br/>
+
+    <br>
+
+    <span>5. ¿Cómo calificaría la calidad del producto?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.cinco" value="alta">
+      Alta
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.cinco" value="baja">
+      Baja
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.cinco" value="mala">
+      Mala
+    </label><br/>
+
+    <br>
+  </div>
+
+
+
+  <div  ng-if="tab==2">
+    <span>6. ¿Cómo calificaría la relación calidad-precio del producto?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.seis" value="excelente">
+      Excelente
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.seis" value="promedio">
+      Promedio
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.seis" value="no pobre">
+      Pobre
+    </label><br/>
+
+    <br>
+
+    <span>7. ¿Qué tan responsables fuimos en la atención?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.siete" value="mucho">
+      Mucho
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.siete" value="poco">
+      Poco
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.siete" value="nada">
+      Nada
+    </label><br/>
+
+    <br>
+
+    <span>8. ¿Cuánto tiempo ha sido cliente de nuestra empresa?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.ocho" value="primera_compra">
+      Esta es mi primera compra
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.ocho" value="seis_meses">
+      Menos de 6 meses
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.ocho" value="mas_tiempo">
+      Mas de 1 año
+    </label><br/>
+
+    <br>
+
+    <span>9. ¿Qué tan gustoso está de comprar nuestros productos denuevo?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="mucho">
+      Mucho
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="poco">
+      Poco
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="nada">
+      Nada
+    </label><br/>
+    <span>10.¿Volverias comprar  nuestros producto?</span><br>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="si">
+      Si
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="AVces">
+      A veces
+    </label><br/>
+    <label>
+      <input type="radio" ng-model="encuesta.nueve" value="No">
+      No
+    </label><br/>
+    <br>
+
+    
+  </div>
+  <div ng-if="tab==3">
+    <span>11.¿ A quien le recomendarias  estos productos?</span><br>
+
+    <div class="funkyradio">
+      <div class="funkyradio-primary">
+        <input type="checkbox" name="checkbox" id="checkbox2" checked/>
+        <label for="checkbox2">a mis  familiares</label>
+      </div>
+      <div class="funkyradio-success">
+        <input type="checkbox" name="checkbox" id="checkbox3" checked/>
+        <label for="checkbox3">a mis enemigos</label>
+      </div>
+      <div class="funkyradio-danger">
+        <input type="checkbox" name="checkbox" id="checkbox4" checked/>
+        <label for="checkbox4">A mis amigos</label>
+      </div>
+      <div class="funkyradio-warning">
+        <input type="checkbox" name="checkbox" id="checkbox5" checked/>
+        <label for="checkbox5">A mis mascota</label>
+      </div>
+    </div>
+    <span>12.¿ Que le falta  a nuestro servicio?</span><br>
+
+    <div class="funkyradio">
+      <div class="funkyradio-primary">
+        <input type="checkbox" name="checkbox" id="checkbox2" checked/>
+        <label for="checkbox2">Mas  variedad de productos</label>
+      </div>
+      <div class="funkyradio-success">
+        <input type="checkbox" name="checkbox" id="checkbox3" checked/>
+        <label for="checkbox3">Mas  variedad de ofertas</label>
+      </div>
+      <div class="funkyradio-danger">
+        <input type="checkbox" name="checkbox" id="checkbox4" checked/>
+        <label for="checkbox4">Mas personal</label>
+      </div>
+      <div class="funkyradio-warning">
+        <input type="checkbox" name="checkbox" id="checkbox5" checked/>
+        <label for="checkbox5">Otros</label>
+      </div>
+    </div>
+    <span>13.¿Que producto te gusto mas ?</span><br>
+    <div class="btn-group " uib-dropdown is-open="status.isopen" >
+      <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+        Seleccione una opcion <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button" >
+        <li role="menuitem" ng-repeat="p in  productos" ><a  >{{p.nombre}}</a></li>
+
+      </ul>
+    </div>
+    <br>
+
+    <span>13. ¿Tiene alguna pregunta, comentario o sugerencia que hacernos? (hasta 400 caracteres)</span><br>
+    <textarea style="width: 100%; height: 35%; color:darkgreen;" ng-model="encuesta.diez" maxlength=400></textarea>
+  </div>
+  <br><br><br>
+
+  <button class="btn btn-info"  ng-disabled="FormIngreso.$invalid" ng-click="Guardar()"><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</button><br>
+  <span style="color:red" ng-show="FormIngreso.$invalid">FALTAN DATOS!!</span>
+
+</center>
+
+</form>
+</div>
